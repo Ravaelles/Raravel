@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'MainController@index')->name('mainpage');
+
+Route::get('project/show/{name}', 'ProjectController@show')->name('project.show')
+    ->where('name', '.*');
