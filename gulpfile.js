@@ -17,3 +17,34 @@ require('laravel-elixir-vue-2');
 //    mix.sass('app.scss')
 //            .webpack('app.js');
 //});
+
+elixir((mix) => {
+
+    // === SASS ================================================================
+
+    // SASS - app
+    mix.sass([
+        'app/*.scss'
+    ], 'public/css/app.min.css');
+
+    // SASS - vendor
+    mix.sass([
+        'vendor/bootstrap.css',
+        'vendor/sb-admin.css',
+        'vendor/*',
+    ], 'public/css/vendor.min.css');
+
+    // === Scripts =============================================================
+
+    // Scripts - app
+    mix.scripts([
+        'app/*.js'
+    ], 'public/js/app.min.js');
+
+    // Scripts - vendor
+    mix.scripts([
+        'vendor/jquery.js',
+        'vendor/*',
+    ], 'public/js/vendor.min.js');
+
+});
