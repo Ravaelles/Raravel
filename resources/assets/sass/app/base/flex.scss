@@ -1,0 +1,20 @@
+/* 
+    Created on : 17-Nov-2016, 17:36:47
+    Author     : Rafal Poniatowski <ravaelles@gmail.com>
+*/
+
+.flex-container {
+    display: flex;
+    align-items: center;
+}
+
+.vcenter, .flex-vcenter {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.hcenter, .flex-hcenter {
+    display: flex;
+    justify-content: center;
+}

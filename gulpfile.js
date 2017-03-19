@@ -24,14 +24,15 @@ elixir((mix) => {
 
     // SASS - app
     mix.sass([
-        'app/*.scss'
+        'app/base/*.scss',
+        'app/*.scss',
     ], 'public/css/app.min.css');
 
     // SASS - vendor
     mix.sass([
         'vendor/bootstrap.css',
         'vendor/sb-admin.css',
-        'vendor/*',
+        'vendor/*.css',
     ], 'public/css/vendor.min.css');
 
     // === Scripts =============================================================
@@ -44,7 +45,7 @@ elixir((mix) => {
     // Scripts - vendor
     mix.scripts([
         'vendor/jquery.js',
-        'vendor/*',
+        'vendor/**.js',
     ], 'public/js/vendor.min.js');
 
 });
