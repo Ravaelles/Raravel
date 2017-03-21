@@ -13,5 +13,10 @@
 
 Route::get('/', 'MainController@index')->name('mainpage');
 
-Route::get('project/show/{name}', 'ProjectController@show')->name('project.show')
-    ->where('name', '.*');
+Route::get('project/{name}', 'ProjectController@show')->name('project.show');
+
+Route::group(['prefix' => 'project/{name}'], function () {
+
+    Route::get('add-model', 'ProjectController@addModel')->name('project.add-model');
+    Route::post('add-model', 'ProjectController@addModel')->name('project.post-add-model');
+});

@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Project;
+use App\Traits\AddsClasses;
 
 class ProjectController extends Controller
 {
 
-    public function show($path)
+    use AddsClasses;
+
+    public function show($projectName)
     {
-        $path = "/$path";
-        dd($path);
+        $project = Project::getProjectByName($projectName);
+        return view('project.show-project')->with(compact('project'));
     }
 
 }

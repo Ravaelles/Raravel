@@ -1,0 +1,67 @@
+/* 
+    Created on : 2016-08-31, 14:24:51
+    Author     : Rafal Poniatowski <ravaelles@gmail.com>
+*/
+
+.notification {
+    
+    z-index: 99999;
+    opacity: 0.85;
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    margin-bottom: 0;
+    color: white !important;
+    font-weight: normal;
+    border-radius: 5px;
+    border: none;
+    letter-spacing: 0.0em;
+    cursor: pointer;
+    text-shadow: 1px 1px 0 rgba(60,63,64,0.5),-1px -1px 0 rgba(60,63,64,0.5),
+        1px -1px 0 rgba(60,63,64,0.5),-1px 1px 0 rgba(60,63,64,0.5),1px 1px 0 rgba(60,63,64,0.5);
+    box-shadow: 0 0 5px 2px rgba(0,0,0,0.8);
+
+    button {
+        margin-left: 15px;
+    }
+    
+    &:hover {
+        opacity: 1;
+    }
+
+}
+
+.notification-success {
+    background: rgba(132,171,25,1);
+    background: -moz-linear-gradient(top, rgba(132,171,25,1) 0%, rgba(84,154,19,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(132,171,25,1)), color-stop(100%, rgba(84,154,19,1)));
+    background: -webkit-linear-gradient(top, rgba(132,171,25,1) 0%, rgba(84,154,19,1) 100%);
+    background: -o-linear-gradient(top, rgba(132,171,25,1) 0%, rgba(84,154,19,1) 100%);
+    background: -ms-linear-gradient(top, rgba(132,171,25,1) 0%, rgba(84,154,19,1) 100%);
+    background: linear-gradient(to bottom, rgba(132,171,25,1) 0%, rgba(84,154,19,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#84ab19', endColorstr='#549a13', GradientType=0 );
+}
+
+.notification-danger {
+    opacity: 0.95;
+    background: rgba(231,34,8,1);
+    background: -moz-linear-gradient(top, rgba(231,34,8,1) 0%, rgba(239,90,67,1) 0%, rgba(230,40,15,1) 71%, rgba(225,42,25,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(231,34,8,1)), color-stop(0%, rgba(239,90,67,1)), color-stop(71%, rgba(230,40,15,1)), color-stop(100%, rgba(225,42,25,1)));
+    background: -webkit-linear-gradient(top, rgba(231,34,8,1) 0%, rgba(239,90,67,1) 0%, rgba(230,40,15,1) 71%, rgba(225,42,25,1) 100%);
+    background: -o-linear-gradient(top, rgba(231,34,8,1) 0%, rgba(239,90,67,1) 0%, rgba(230,40,15,1) 71%, rgba(225,42,25,1) 100%);
+    background: -ms-linear-gradient(top, rgba(231,34,8,1) 0%, rgba(239,90,67,1) 0%, rgba(230,40,15,1) 71%, rgba(225,42,25,1) 100%);
+    background: linear-gradient(to bottom, rgba(231,34,8,1) 0%, rgba(239,90,67,1) 0%, rgba(230,40,15,1) 71%, rgba(225,42,25,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e72208', endColorstr='#e12a19', GradientType=0 );
+}
+
+.notification-info {
+    background: rgba(122,195,255,1);
+    background: -moz-linear-gradient(top, rgba(122,195,255,1) 0%, rgba(58,151,238,1) 0%, rgba(122,195,255,1) 0%, rgba(14,124,221,1) 73%, rgba(24,133,216,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(122,195,255,1)), color-stop(0%, rgba(58,151,238,1)), color-stop(0%, rgba(122,195,255,1)), color-stop(73%, rgba(14,124,221,1)), color-stop(100%, rgba(24,133,216,1)));
+    background: -webkit-linear-gradient(top, rgba(122,195,255,1) 0%, rgba(58,151,238,1) 0%, rgba(122,195,255,1) 0%, rgba(14,124,221,1) 73%, rgba(24,133,216,1) 100%);
+    background: -o-linear-gradient(top, rgba(122,195,255,1) 0%, rgba(58,151,238,1) 0%, rgba(122,195,255,1) 0%, rgba(14,124,221,1) 73%, rgba(24,133,216,1) 100%);
+    background: -ms-linear-gradient(top, rgba(122,195,255,1) 0%, rgba(58,151,238,1) 0%, rgba(122,195,255,1) 0%, rgba(14,124,221,1) 73%, rgba(24,133,216,1) 100%);
+    background: linear-gradient(to bottom, rgba(122,195,255,1) 0%, rgba(58,151,238,1) 0%, rgba(122,195,255,1) 0%, rgba(14,124,221,1) 73%, rgba(24,133,216,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ac3ff', endColorstr='#1885d8', GradientType=0 );
+}

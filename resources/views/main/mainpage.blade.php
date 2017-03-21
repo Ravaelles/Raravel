@@ -1,28 +1,24 @@
 @extends('layouts.app')
 
+@section('page-header')
+Dashboard
+@endsection
+
 @section('content')
 <div class="projects">
     @foreach ($projectsGrouped as $projectsGroup)
     <div class="row mt20 mb5">
-        <button type="button" class="btn btn-default">
+        <h4 class="pb5 mb5" style="border-bottom: 1px solid #ccc;">
             {!! $projectsGroup['name'] !!}
-        </button>
+        </h4>
     </div>
     <div class="row">
         @foreach ($projectsGroup['projects'] as $project)
-        <a class="btn btn-primary" href="{!! route('project.show', ['path' => substr($project['path'], 1)]) !!}">
-            {!! $project['name'] !!}
+        <a class="btn btn-default" href="{!! route('project.show', $project->getName()) !!}">
+            {!! $project->getName() !!}
         </a>
         @endforeach
     </div>
     @endforeach
 </div>
-
-<style>
-    .projects .btn {
-        margin-right: 10px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-</style>
 @endsection
