@@ -8,6 +8,28 @@ use App\Classes\FileHandler;
 trait AddsClasses
 {
 
+    public function addClass(Request $request)
+    {
+        $project = $this->getProjectFromUrl();
+
+        // === Post ================================================================
+
+        if ($request->isMethod('post')) {
+            $className = $request->get('class');
+            $path = $project->getPath() . "app/Classes/$className.php";
+            $pathHuman = str_replace($project->getPath(), "", $path);
+
+            FileHandler::createFile($path)->useTemplate('class', $request);
+
+            flash("Added class $pathHuman", 'success');
+            return redirect()->route('project.show', $project->getName());
+        }
+
+        // =========================================================================
+
+        return view('actions.add-class')->with(compact('project'));
+    }
+
     public function addHelper(Request $request)
     {
         $project = $this->getProjectFromUrl();
