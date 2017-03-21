@@ -22,12 +22,21 @@ class FileHandler
     {
         $file = new FileHandler($path);
         if (!file_exists($path)) {
+            $file->ensureDirExists($path);
             file_put_contents($path, "");
         } else {
             abort(400, "File $path already exists");
 //            flash("File $path already exists", 'danger');
         }
         return $file;
+    }
+
+    public function ensureDirExists($path)
+    {
+        $dir = \App\Helpers\StringHelper::str_remove_right_last_from("/", $path);
+        if (!file_exists($dir)) {
+            mkdir($dir);
+        }
     }
 
     public function useTemplate($templateName, Request $request)
@@ -56,7 +65,9 @@ class FileHandler
 
         // =========================================================================
 
-        $content = str_replace("__MODEL_NAME__", $className, $content);
+        $content = str_replace("__CLASS_NAME__", $className, $content);
+
+        // =========================================================================
 
         return $content;
     }

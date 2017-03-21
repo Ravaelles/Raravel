@@ -20,5 +20,8 @@ Route::group(['prefix' => 'project/{name}'], function () {
     Route::get('add-model', 'ProjectController@addModel')->name('project.add-model');
     Route::post('add-model', 'ProjectController@addModel')->name('project.post-add-model');
 
+    Route::get('add-helper', 'ProjectController@addHelper')->name('project.add-helper');
+    Route::post('add-helper', 'ProjectController@addHelper')->name('project.post-add-helper');
+
     Route::get('add-eloquent', 'ProjectController@addEloquent')->name('project.add-eloquent');
 });

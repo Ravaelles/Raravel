@@ -2,7 +2,7 @@
 
 namespace App;
 
-class __MODEL_NAME__ extends Eloquent
+class __CLASS_NAME__ extends Eloquent
 {
 
     

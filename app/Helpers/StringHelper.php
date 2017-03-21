@@ -78,7 +78,7 @@ class StringHelper
 
     /**
      * Removes everything on left from last substring e.g.<br />
-     * str_remove_left_from("person: ", "This is person: Johny.txt") returns "Johny.txt"
+     * str_remove_left_last_from("hehe/foo/bar", "/") returns "bar"
      */
     public static function str_remove_left_last_from($substringOnLeft, $string)
     {
@@ -101,6 +101,15 @@ class StringHelper
     public static function str_remove_right_from($substringOnLeft, $string)
     {
         return substr($string, 0, strpos($string, $substringOnLeft));
+    }
+
+    /**
+     * Removes everything on right from given last substring e.g.<br />
+     * str_remove_right_last_from("hehe/foo/bar", "/") returns "hehe/foo"
+     */
+    public static function str_remove_right_last_from($substringOnLeft, $string)
+    {
+        return substr($string, 0, strrpos($string, $substringOnLeft));
     }
 
 }

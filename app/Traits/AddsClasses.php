@@ -8,6 +8,28 @@ use App\Classes\FileHandler;
 trait AddsClasses
 {
 
+    public function addHelper(Request $request)
+    {
+        $project = $this->getProjectFromUrl();
+
+        // === Post ================================================================
+
+        if ($request->isMethod('post')) {
+            $className = $request->get('class');
+            $path = $project->getPath() . "app/Helpers/$className.php";
+            $pathHuman = str_replace($project->getPath(), "", $path);
+
+            FileHandler::createFile($path)->useTemplate('helper', $request);
+
+            flash("Added helper $pathHuman", 'success');
+            return redirect()->route('project.show', $project->getName());
+        }
+
+        // =========================================================================
+
+        return view('actions.add-helper')->with(compact('project'));
+    }
+
     public function addModel(Request $request)
     {
         $project = $this->getProjectFromUrl();
@@ -17,10 +39,11 @@ trait AddsClasses
         if ($request->isMethod('post')) {
             $className = $request->get('class');
             $path = $project->getPath() . "app/$className.php";
+            $pathHuman = str_replace($project->getPath(), "", $path);
 
             FileHandler::createFile($path)->useTemplate('model', $request);
 
-            flash("Added $path", 'success');
+            flash("Added $pathHuman", 'success');
             return redirect()->route('project.show', $project->getName());
         }
 
@@ -28,6 +51,8 @@ trait AddsClasses
 
         return view('actions.add-model')->with(compact('project'));
     }
+
+    // === Static files ===========================================================
 
     public function addEloquent(Request $request)
     {

@@ -5,6 +5,26 @@
 
 .main-content {
     min-height: 400px;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* ========= Panel ============================ */
+
+.panel-full-buttons .btn {
+    width: 100%;
+}
+
+/* ========= Media ============================ */
+
+$sidebar-width: 170px;
+
+@media (min-width: 768px) {
+    .side-nav, .side-nav>li>a {
+        width: $sidebar-width;
+    }
+    
+    #wrapper {
+        padding-left: $sidebar-width;
+    }
 }

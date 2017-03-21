@@ -8,6 +8,7 @@
 
     <title>Raravel</title>
 
+    <link rel="icon" href="/favicon.ico">
     <link href="/css/vendor.min.css" rel="stylesheet">
     <link href="/css/app.min.css" rel="stylesheet">
 
