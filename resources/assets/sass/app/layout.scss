@@ -9,6 +9,22 @@
     margin-right: 0;
 }
 
+/* ========= Logo ============================= */
+
+.logo {
+    display: inline !important;
+    max-width: 32px;
+    max-height: 32px;
+    margin-top: -6px;
+    margin-right: 5px;
+}
+
+.logo-text {
+    display: inline;
+    font-family: monospace;
+    color: #ec4646 !important;
+}
+
 /* ========= Panel ============================ */
 
 .panel-full-buttons .btn {

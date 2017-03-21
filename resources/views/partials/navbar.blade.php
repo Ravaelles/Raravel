@@ -8,7 +8,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Raravel</a>
+        <a class="navbar-brand" href="/">
+            <img src="/favicon.ico" class="logo" />
+            <div class="logo-text">
+                Raravel
+            </div>
+        </a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">

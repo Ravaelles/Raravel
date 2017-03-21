@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
+<?php
+$favicon = $project->getPath() . "public/favicon.ico";
+if (file_exists($favicon)) {
+    $iconBase64 = 'data:image/ico;base64,' . base64_encode(file_get_contents($favicon));
+}
+?>
+
 @section('page-header')
+@if (!empty($iconBase64))
+<img src="{!! $iconBase64 !!}" class="mr5" style="max-width:64px;max-height:64px" />
+@endif
 {!! $project->getName() !!}
 @endsection
 
