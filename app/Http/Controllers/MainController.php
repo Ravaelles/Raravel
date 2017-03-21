@@ -11,7 +11,7 @@ class MainController extends Controller
     public function index()
     {
         $projectsGrouped = Project::getProjectsGrouped();
-        return view('main.mainpage')->with(compact('projectsGrouped'));
+        return view('main.dashboard')->with(compact('projectsGrouped'));
     }
 
 }

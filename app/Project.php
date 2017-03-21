@@ -115,6 +115,29 @@ class Project
         return true;
     }
 
+    // === Aux =================================================================
+
+    public function getFavicon()
+    {
+        $favicon = $this->getPath() . "public/favicon.ico";
+        if (!file_exists($favicon)) {
+            $favicon = $this->getPath() . "public/favicon/";
+            $files = glob($favicon . "*.ico");
+            if (count($files)) {
+                $favicon = $files[0];
+            }
+        }
+
+        if (file_exists($favicon)) {
+            $content = file_get_contents($favicon);
+            if (strlen($content) > 0) {
+                $iconBase64 = 'data:image/ico;base64,' . base64_encode($content);
+                return $iconBase64;
+            }
+        }
+        return null;
+    }
+
     // =========================================================================
 
     function getPath()

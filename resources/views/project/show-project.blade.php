@@ -1,18 +1,12 @@
 @extends('layouts.app')
 
 <?php
-$favicon = $project->getPath() . "public/favicon.ico";
-if (file_exists($favicon)) {
-    $content = file_get_contents($favicon);
-    if (strlen($content) > 0) {
-        $iconBase64 = 'data:image/ico;base64,' . base64_encode($content);
-    }
-}
+$favicon = $project->getFavicon();
 ?>
 
 @section('page-header')
-@if (isset($iconBase64))
-<img src="{!! $iconBase64 !!}" class="mr5" style="max-width:64px;max-height:64px" />
+@if ($favicon !== null)
+<img src="{!! $favicon !!}" class="project-icon-big mr5" />
 @endif
 {!! $project->getName() !!}
 @endsection
@@ -40,39 +34,39 @@ if (file_exists($favicon)) {
                    'message' => 'Will be placed in app/'
                    ])>
                    Add model
-                </a>
+            </a>
 
                 <br />
 
-                <a class="btn btn-default" href="{!! route('project.add-helper', $project->getName()) !!}"
-                   @include('partials.ui.tooltip', [
-                   'message' => 'Will be placed in app/Helpers'
-                   ])>
-                   Add helper
-                </a>
+            <a class="btn btn-default" href="{!! route('project.add-helper', $project->getName()) !!}"
+               @include('partials.ui.tooltip', [
+               'message' => 'Will be placed in app/Helpers'
+               ])>
+               Add helper
+            </a>
 
-                <br />
+            <br />
 
-                <a class="btn btn-default" href="{!! route('project.add-class', $project->getName()) !!}"
-                   @include('partials.ui.tooltip', [
-                   'message' => 'Will be placed in app/Classes'
-                   ])>
-                   Add class
+        <a class="btn btn-default" href="{!! route('project.add-class', $project->getName()) !!}"
+           @include('partials.ui.tooltip', [
+           'message' => 'Will be placed in app/Classes'
+           ])>
+           Add class
             </a>
         </div>
     </div>
-    </div>
+</div>
 
     <div class="col-md-4">
         <div class="panel panel-default panel-full-buttons">
             <div class="panel-heading">Functions</div>
             <div class="panel-body">
-                <a class="btn btn-default" href="{!! route('project.add-eloquent', $project->getName()) !!}">
-                    Add route
-                </a>
-            </div>
+                <a class="btn btn-default" href="{!! route('project.add-function', $project->getName()) !!}">
+                    Add function
+            </a>
         </div>
     </div>
+</div>
 
 </div>
 @endsection

@@ -8,7 +8,7 @@ use App\Classes\FileHandler;
 trait AddsFunctions
 {
 
-    public function addFunctions(Request $request)
+    public function addFunction(Request $request)
     {
         $project = $this->getProjectFromUrl();
 
@@ -27,7 +27,30 @@ trait AddsFunctions
 
         // =========================================================================
 
-        return view('actions.add-function')->with(compact('project'));
+        $classes = $this->getClasses();
+
+        return view('actions.add-function')->with(compact('project', 'classes'));
+    }
+
+    // =========================================================================
+
+    private function getClasses()
+    {
+        $classes = [];
+
+        $lookInDirs = ['app/', 'app/Http/Controllers', 'app/Helpers/', 'app/Classes/'];
+
+        foreach ($lookInDirs as $dir) {
+            $dirPath = base_path($dir . "*.php");
+            dump(glob($dirPath));
+            foreach (glob($dirPath) as $file) {
+            }
+        }
+
+        echo "<br />END";
+        dd($classes);
+
+        return $classes;
     }
 
 }
