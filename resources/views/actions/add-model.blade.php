@@ -13,7 +13,7 @@
 <div class="form-group">
 
     {!! Form::label('class', 'Class name', ['class' => 'control-label']) !!}
-    {!! Form::text('class', '', ['class' => 'form-control', 'required' => true, 'autocomplete' => 'off']) !!}
+    {!! Form::text('class', '', ['class' => 'form-control', 'required' => true, 'autocomplete' => 'off', 'autofocus' => true]) !!}
 
 </div>
 

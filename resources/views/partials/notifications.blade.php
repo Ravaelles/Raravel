@@ -11,13 +11,13 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $(".notification").css({'margin-right': '-200px', 'display': 'inherit'})
-                .animate({'margin-right': '0px'}, 400);
+        $(".notification").css({'margin-right': '-400px', 'display': 'inherit'})
+                .animate({'margin-right': '0px'}, 500);
         setTimeout(function() {
-            $(".notification").animate({'margin-right': '-200px'}, 1500)
             setTimeout(function() {
                 $(".notification").remove();
             }, 2000);
+            $(".notification").animate({'margin-right': '-400px'}, 2000)
         }, 8000);
     });
 </script>

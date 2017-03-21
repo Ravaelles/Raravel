@@ -16,16 +16,28 @@ trait AddsClasses
 
         if ($request->isMethod('post')) {
             $className = $request->get('class');
+            $path = $project->getPath() . "app/$className.php";
 
-            $path = app_path("$className.php");
-            FileHandler::createFile($path);
+            FileHandler::createFile($path)->useTemplate('model', $request);
 
-            return redirect()->route('project.show', $project['name']);
+            flash("Added $path", 'success');
+            return redirect()->route('project.show', $project->getName());
         }
 
         // =========================================================================
 
         return view('actions.add-model')->with(compact('project'));
+    }
+
+    public function addEloquent(Request $request)
+    {
+        $project = $this->getProjectFromUrl();
+        $path = $project->getPath() . "app/Eloquent.php";
+
+        FileHandler::createFile($path)->useTemplate('eloquent', $request);
+
+        flash("Added $path", 'success');
+        return redirect()->route('project.show', $project->getName());
     }
 
 }

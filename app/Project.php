@@ -87,7 +87,7 @@ class Project
 //                'path' => $child,
 //                'name' => $name,
 //            ];
-            $projects[] = new Project($child, $name);
+            $projects[] = new Project($child . "/", $name);
         }
 
         return $projects;

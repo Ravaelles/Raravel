@@ -19,4 +19,6 @@ Route::group(['prefix' => 'project/{name}'], function () {
 
     Route::get('add-model', 'ProjectController@addModel')->name('project.add-model');
     Route::post('add-model', 'ProjectController@addModel')->name('project.post-add-model');
+
+    Route::get('add-eloquent', 'ProjectController@addEloquent')->name('project.add-eloquent');
 });
