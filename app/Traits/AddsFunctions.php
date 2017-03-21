@@ -15,7 +15,11 @@ trait AddsFunctions
         // === Post ================================================================
 
         if ($request->isMethod('post')) {
-            $className = $request->get('name');
+            $className = $request->get('class');
+            $functionName = $request->get('name');
+            dump($className);
+            dump($functionName);
+            exit;
             $path = $project->getPath() . "app/Classes/$className.php";
             $nameHuman = str_replace($project->getPath(), "", $path);
 
@@ -38,17 +42,25 @@ trait AddsFunctions
     {
         $classes = [];
 
-        $lookInDirs = ['app/', 'app/Http/Controllers', 'app/Helpers/', 'app/Classes/'];
+        $lookInDirs = [
+            'app/' => 'Model',
+            'app/Http/Controllers' => 'Controller',
+            'app/Helpers/' => 'Helper',
+            'app/Classes/' => 'Class'
+        ];
 
-        foreach ($lookInDirs as $dir) {
+        foreach ($lookInDirs as $dir => $humanDirName) {
             $dirPath = base_path($dir . "*.php");
-            dump(glob($dirPath));
-            foreach (glob($dirPath) as $file) {
+//            dump(glob($dirPath));
+            foreach (glob($dirPath) as $path) {
+                $filename = \App\Helpers\PathHelper::getFilenameByPath($path);
+//                $classes[$humanDirName][$path] = [$filename];
+                $classes[$path] = $humanDirName . "/" . $filename;
             }
         }
 
-        echo "<br />END";
-        dd($classes);
+//        echo "<br />END";
+//        dd($classes);
 
         return $classes;
     }

@@ -4,6 +4,10 @@
 $favicon = $project->getFavicon();
 ?>
 
+@section('html-title')
+{!! $project->getName() !!} - Raravel
+@endsection
+
 @section('page-header')
 @if ($favicon !== null)
 <img src="{!! $favicon !!}" class="project-icon-big mr5" />
@@ -18,12 +22,15 @@ $favicon = $project->getFavicon();
         <div class="panel panel-default panel-full-buttons">
             <div class="panel-heading">Static</div>
             <div class="panel-body">
-                <a class="btn btn-default" href="{!! route('project.add-eloquent', $project->getName()) !!}">
-                    Add MongoDB Eloquent model
-                </a>
-            </div>
+                <a class="btn btn-default" href="{!! route('project.add-eloquent', $project->getName()) !!}"
+                   @include('partials.ui.tooltip', [
+                   'message' => 'Add hardcoded model that will be used in place of the standard model'
+                   ])>
+                   Add MongoDB Eloquent model
+            </a>
         </div>
     </div>
+</div>
 
     <div class="col-md-4">
         <div class="panel panel-default panel-full-buttons">
@@ -36,25 +43,25 @@ $favicon = $project->getFavicon();
                    Add model
             </a>
 
-                <br />
-
-            <a class="btn btn-default" href="{!! route('project.add-helper', $project->getName()) !!}"
-               @include('partials.ui.tooltip', [
-               'message' => 'Will be placed in app/Helpers'
-               ])>
-               Add helper
-            </a>
-
             <br />
 
-        <a class="btn btn-default" href="{!! route('project.add-class', $project->getName()) !!}"
+        <a class="btn btn-default" href="{!! route('project.add-helper', $project->getName()) !!}"
            @include('partials.ui.tooltip', [
-           'message' => 'Will be placed in app/Classes'
+           'message' => 'Will be placed in app/Helpers'
            ])>
-           Add class
-            </a>
-        </div>
+           Add helper
+        </a>
+
+        <br />
+
+    <a class="btn btn-default" href="{!! route('project.add-class', $project->getName()) !!}"
+       @include('partials.ui.tooltip', [
+       'message' => 'Will be placed in app/Classes'
+       ])>
+       Add class
+        </a>
     </div>
+</div>
 </div>
 
     <div class="col-md-4">
@@ -63,10 +70,10 @@ $favicon = $project->getFavicon();
             <div class="panel-body">
                 <a class="btn btn-default" href="{!! route('project.add-function', $project->getName()) !!}">
                     Add function
-            </a>
+                </a>
+            </div>
         </div>
     </div>
-</div>
 
 </div>
 @endsection

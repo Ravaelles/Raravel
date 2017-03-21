@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Raravel</title>
+    <title>@yield('html-title', 'Raravel')</title>
 
     <link rel="icon" href="/favicon.ico">
     <link href="/css/vendor.min.css" rel="stylesheet">

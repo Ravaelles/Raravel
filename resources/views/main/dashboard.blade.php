@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-header')
-Dashboard
+<i class="fa fa-dashboard mr5"></i> <span>Dashboard</span>
 @endsection
 
 @section('content')

@@ -44,7 +44,17 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        $message = @$exception->getMessage();
+        $code = @$exception->getStatusCode();
+
+        if ($code == 400) {
+            $e = $exception;
+            return response()->view('errors.generic', compact('code', 'message', 'e'));
+//            return view('errors.generic')->with(compact('code', 'message', 'e'));
+            echo "OK";
+        } else {
+            return parent::render($request, $exception);
+        }
     }
 
     /**
