@@ -52,8 +52,8 @@ trait AddsFunctions
 //            dump(glob($dirPath));
             foreach (glob($dirPath) as $path) {
                 $filename = \App\Helpers\PathHelper::getFilenameByPath($path);
-//                $classes[$humanDirName][$path] = [$filename];
-                $classes[$path] = $humanDirName . "/" . $filename;
+                $classes[$humanDirName][$path] = $filename;
+//                $classes[$path] = $humanDirName . "/" . $filename;
             }
         }
 

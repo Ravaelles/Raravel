@@ -9,9 +9,9 @@
                 <span class="caret ml5"></span>
             </button>
 
-            <ul class="dropdown-menu pt0 pb0" aria-labelledby="dropdownMenu1">
+            <ul class="dropdown-menu pt5 pb5" aria-labelledby="dropdownMenu1">
                 @foreach ($installers as $installer)
-                <li class="p10">
+                <li class="p10" style="padding-top: 1px !important; padding-bottom: 1px !important;">
                     <a class="btn btn-default" target="_blank"
                        href="{!! route('project.install', 
                        ['project' => $project->getName(), 'install' => $installer->getName()]) !!}"

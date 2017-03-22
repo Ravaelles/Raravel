@@ -16,6 +16,15 @@
 </div>
 
 <div class="form-group">
+    <div class="checkbox checkbox-primary">
+        <input type="checkbox" id="checkbox1" name="static">
+        <label for="checkbox1">
+            Static
+        </label>
+    </div>
+</div>
+
+<div class="form-group">
     {!! Form::label('class', 'Class', ['class' => 'control-label']) !!}
     <!--    {!! Form::text('class', '', ['class' => 'form-control', 'required' => true, 'autocomplete' => 'off', 'autofocus' => true]) !!}-->
     {!! Form::select('class', $classes, null, ['class' => 'form-control']) !!}
