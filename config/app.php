@@ -180,7 +180,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
 //        Krucas\Notification\NotificationServiceProvider::class,
-    ],
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+],
     /*
     |--------------------------------------------------------------------------
     | Class Aliases
@@ -232,5 +233,4 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
 //        'Notification' => Krucas\Notification\Facades\Notification::class,
     ],
-
 ];

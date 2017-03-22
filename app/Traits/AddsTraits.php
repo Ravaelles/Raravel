@@ -5,10 +5,10 @@ namespace App\Traits;
 use Illuminate\Http\Request;
 use App\Classes\FileHandler;
 
-trait AddsRoutes
+trait AddsTraits
 {
 
-    public function addRoute(Request $request)
+    public function addTrait(Request $request)
     {
         $project = $this->getProjectFromUrl();
 
@@ -16,14 +16,20 @@ trait AddsRoutes
 
         if ($request->isMethod('post')) {
             $className = $request->get('class');
+            $functionName = $request->get('name');
 
-            flash("Added route $pathHuman", 'success');
+            $path = $project->getPath() . "app/Traits/$className.php";
+            $nameHuman = str_replace($project->getPath(), "", $path);
+
+            FileHandler::createFile($path)->useTemplate('trait', $request);
+
+            flash("Added trait $nameHuman", 'success');
             return redirect()->route('project.show', $project->getName());
         }
 
         // =========================================================================
 
-        return view('actions.add-route')->with(compact('project'));
+        return view('actions.add-trait')->with(compact('project', 'classes'));
     }
 
 }

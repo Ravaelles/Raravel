@@ -1,0 +1,17 @@
+[
+	{
+		"name": "Laravel log viewer",
+		"type": "log",
+		"command": "composer require rap2hpoutre/laravel-log-viewer",
+		"provider": "Rap2hpoutre\\LaravelLogViewer\\LaravelLogViewerServiceProvider::class",
+		"alias": "",
+		"route": "Route::get('hq/logs', '\\Rap2hpoutre\\LaravelLogViewer\\LogViewerController@index');"
+	},
+	{
+		"name": "",
+		"type": "",
+		"command": "",
+		"provider": "",
+		"alias": ""
+	}
+]

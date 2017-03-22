@@ -29,7 +29,7 @@ class Project
             $dirName = StringHelper::str_remove_left_last_from("/", $path);
             $groups[] = [
                 'path' => $path,
-                'name' => $dirName
+                'project' => $dirName
             ];
         }
 
@@ -74,7 +74,7 @@ class Project
         $projects = [];
 
         $dirPath = $group['path'];
-        $dirName = $group['name'];
+        $dirName = $group['project'];
 
         foreach (glob("$dirPath/*") as $child) {
             $name = StringHelper::str_remove_left_last_from("/", $child);
@@ -85,7 +85,7 @@ class Project
 
 //            $projects[] = [
 //                'path' => $child,
-//                'name' => $name,
+//                'project' => $name,
 //            ];
             $projects[] = new Project($child . "/", $name);
         }

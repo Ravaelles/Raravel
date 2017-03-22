@@ -17,9 +17,7 @@ trait AddsFunctions
         if ($request->isMethod('post')) {
             $className = $request->get('class');
             $functionName = $request->get('name');
-            dump($className);
-            dump($functionName);
-            exit;
+
             $path = $project->getPath() . "app/Classes/$className.php";
             $nameHuman = str_replace($project->getPath(), "", $path);
 

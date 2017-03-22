@@ -44,17 +44,28 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+
+        // === Define message ======================================================
+
         $message = @$exception->getMessage();
-        $code = @$exception->getStatusCode();
+
+        // === Define error code ===================================================
+
+        if (method_exists($exception, 'getStatusCode')) {
+            $code = @$exception->getStatusCode();
+        } else {
+            $code = @$exception->getCode();
+        }
+
+        // =========================================================================
 
         if ($code == 400) {
             $e = $exception;
             return response()->view('errors.generic', compact('code', 'message', 'e'));
 //            return view('errors.generic')->with(compact('code', 'message', 'e'));
-            echo "OK";
-        } else {
-            return parent::render($request, $exception);
         }
+
+        return parent::render($request, $exception);
     }
 
     /**

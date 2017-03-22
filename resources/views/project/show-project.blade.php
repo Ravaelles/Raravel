@@ -18,7 +18,7 @@ $favicon = $project->getFavicon();
 @section('content')
 <div class="row mt20 mb5">
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="panel panel-default panel-full-buttons">
             <div class="panel-heading">Static</div>
             <div class="panel-body">
@@ -26,13 +26,13 @@ $favicon = $project->getFavicon();
                    @include('partials.ui.tooltip', [
                    'message' => 'Add hardcoded model that will be used in place of the standard model'
                    ])>
-                   Add MongoDB Eloquent model
+                   Add MongoDB Eloquent
             </a>
         </div>
     </div>
 </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="panel panel-default panel-full-buttons">
             <div class="panel-heading">Class</div>
             <div class="panel-body">
@@ -60,11 +60,20 @@ $favicon = $project->getFavicon();
        ])>
        Add class
         </a>
+
+        <br />
+
+        <a class="btn btn-default" href="{!! route('project.add-trait', $project->getName()) !!}"
+           @include('partials.ui.tooltip', [
+           'message' => 'Will be placed in app/Traits'
+           ])>
+           Add trait
+            </a>
+        </div>
     </div>
 </div>
-</div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="panel panel-default panel-full-buttons">
             <div class="panel-heading">Functions</div>
             <div class="panel-body">
@@ -73,6 +82,10 @@ $favicon = $project->getFavicon();
                 </a>
             </div>
         </div>
+    </div>
+
+    <div class="col-md-3">
+        @include('project.partials.install')
     </div>
 
 </div>

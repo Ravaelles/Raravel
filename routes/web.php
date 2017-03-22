@@ -15,7 +15,7 @@ Route::get('/', 'MainController@index')->name('mainpage');
 
 Route::get('project/{name}', 'ProjectController@show')->name('project.show');
 
-Route::group(['prefix' => 'project/{name}'], function () {
+Route::group(['prefix' => 'project/{project}'], function () {
 
     // Static
     Route::get('add-eloquent', 'ProjectController@addEloquent')->name('project.add-eloquent');
@@ -30,9 +30,20 @@ Route::group(['prefix' => 'project/{name}'], function () {
     Route::get('add-class', 'ProjectController@addClass')->name('project.add-class');
     Route::post('add-class', 'ProjectController@addClass')->name('project.post-add-class');
 
+    Route::get('add-trait', 'ProjectController@addTrait')->name('project.add-trait');
+    Route::post('add-trait', 'ProjectController@addTrait')->name('project.post-add-trait');
+
     // Function
 //    Route::get('add-route', 'ProjectController@addRoute')->name('project.add-class');
 //    Route::post('add-route', 'ProjectController@addRoute')->name('project.post-add-class');
     Route::get('add-function', 'ProjectController@addFunction')->name('project.add-function');
     Route::post('add-function', 'ProjectController@addFunction')->name('project.post-add-function');
+
+    // Install
+//    Route::get('add-route', 'ProjectController@addRoute')->name('project.add-class');
+//    Route::post('add-route', 'ProjectController@addRoute')->name('project.post-add-class');
+    Route::get('install/{installer}', 'ProjectController@install')->name('project.install');
 });
+
+// === HQ ===========================================================
+

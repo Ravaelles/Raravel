@@ -7,7 +7,7 @@
         <div class="error-container">
 
             <div class="error-header">
-                Oops, Error!
+                Error
             </div>
 
             @if (empty($message))
