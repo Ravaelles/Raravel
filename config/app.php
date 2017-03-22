@@ -181,7 +181,7 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
 //        Krucas\Notification\NotificationServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
-],
+    ],
     /*
     |--------------------------------------------------------------------------
     | Class Aliases
@@ -229,8 +229,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         // Custom
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
+    //        'Form' => Collective\Html\FormFacade::class,
+//        'Html' => Collective\Html\HtmlFacade::class,
 //        'Notification' => Krucas\Notification\Facades\Notification::class,
-    ],
+        'Form' => Collective\Html\FormFacade::class, 'Html' => Collective\Html\HtmlFacade::class,
+],
 ];

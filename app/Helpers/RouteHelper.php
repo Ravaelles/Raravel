@@ -11,7 +11,9 @@ class RouteHelper
 
         $content = file_get_contents($path);
 
-
+        if (!str_contains($content, $routeString)) {
+            $content .= "\r\n" . $routeString;
+        }
 
         file_put_contents($path, $content);
     }

@@ -2,15 +2,28 @@
 
 namespace App;
 
+use App\Helpers\RegexHelper;
+
 class Installer
 {
 
     public static function getInstallers()
     {
-        $rawArray = json_decode(file_get_contents(base_path('installers.json')), TRUE);
+        // === Parse installers json ===============================================
+
+        $installersFile = base_path('installers.json');
+
+//        $rawArray = json_decode(file_get_contents($installersFile), TRUE);
+//        if ($rawArray === null) {
+//            self::escapeSingleSlashes($installersFile);
+//        }
+
+        $rawArray = json_decode(file_get_contents($installersFile), TRUE);
         if ($rawArray === null) {
-            die('Cant build json. You probably need to replace \\ with \\\\');
+            die('Cant parse `installers.json`. You probably need to replace \\ with \\\\');
         }
+
+        // =========================================================================
 
         $installers = [];
         foreach ($rawArray as $rawInstaller) {
@@ -37,6 +50,22 @@ class Installer
             }
         }
         return null;
+    }
+
+    private static function escapeSingleSlashes($installersFile)
+    {
+        $content = file_get_contents($installersFile);
+
+//        $regex = '[^\\\\](\\\\)[^\\\\]';
+//        $content = RegexHelper::replace($regex, "\\\\\\\\", $content);
+        $content = str_replace("\\\\", "@@@DOUBLE_SLASH@@@", $content);
+        $content = str_replace("\\", "@@@SINGLE_SLASH@@@", $content);
+        $content = str_replace("@@@SINGLE_SLASH@@@", "\\", $content);
+        $content = str_replace("@@@DOUBLE_SLASH@@@", "\\\\", $content);
+
+        echo "<pre>" . $content . "</pre>";
+        exit;
+//        file_put_contents($installersFile, $content);
     }
 
     // =========================================================================

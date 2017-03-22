@@ -8,6 +8,7 @@ use App\Project;
 use App\Helpers\ConsoleHelper;
 use App\Helpers\ConfigAppHelper;
 use App\Helpers\DebugHelper;
+use App\Helpers\RouteHelper;
 
 trait InstallsPackages
 {
@@ -31,6 +32,11 @@ trait InstallsPackages
         if (!empty($installer->getAlias())) {
             echo DebugHelper::getGreenSection("Adding alias: " . $installer->getAlias());
             ConfigAppHelper::addAlias($installer->getAlias());
+        }
+
+        if (!empty($installer->getRoute())) {
+            echo DebugHelper::getGreenSection("Adding route: " . $installer->getRoute());
+            RouteHelper::addRoute($installer->getRoute());
         }
     }
 

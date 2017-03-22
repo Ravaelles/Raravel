@@ -47,3 +47,4 @@ Route::group(['prefix' => 'project/{project}'], function () {
 
 // === HQ ===========================================================
 
+Route::get('hq/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

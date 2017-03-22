@@ -23,7 +23,7 @@ class ConfigAppHelper
     {
         $string = "     $string";
         if (ends_with($string, ",")) {
-            $string = substr($string, -1);
+            $string = substr($string, 0, strlen($string) - 1);
         }
         if (!ends_with($string, "::class")) {
             $string .= "::class";

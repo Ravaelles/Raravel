@@ -8,10 +8,24 @@
 		"route": "Route::get('hq/logs', '\\Rap2hpoutre\\LaravelLogViewer\\LogViewerController@index');"
 	},
 	{
-		"name": "",
-		"type": "",
-		"command": "",
-		"provider": "",
+		"name": "Jenssegers MongoDB",
+		"type": "database",
+		"command": "composer require jenssegers/mongodb",
+		"provider": "Jenssegers\\Mongodb\\MongodbServiceProvider::class,",
 		"alias": ""
+	},
+	{
+		"name": "Laracasts Flash",
+		"type": "notifications",
+		"command": "composer require laracasts/flash",
+		"provider": "Laracasts\\Flash\\FlashServiceProvider::class,",
+		"alias": ""
+	},
+	{
+		"name": "Laravel Collective",
+		"type": "ui",
+		"command": "composer require \"laravelcollective/html\":\"^5.3.0\"",
+		"provider": "Collective\\Html\\HtmlServiceProvider::class,",
+		"alias": "'Form' => Collective\\Html\\FormFacade::class, 'Html' => Collective\\Html\\HtmlFacade::class,"
 	}
 ]
