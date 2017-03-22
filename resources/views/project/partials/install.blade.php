@@ -16,10 +16,10 @@
                        href="{!! route('project.install', 
                        ['project' => $project->getName(), 'install' => $installer->getName()]) !!}"
                        @include('partials.ui.tooltip', [
-                       'message' => $installer->getCommand()
-                       ])>
+                       'message' => str_replace('"', "'", $installer->getCommand()) . "<br /><br />If needed adds providers and aliases to config/app.php and creates default route."
+                        ])>
                        {!! $installer->getName() !!}
-                    </a>
+                </a>
                 </li>
                 @endforeach
             </ul>

@@ -15,4 +15,4 @@ if (!empty($align)) {
         $message = "<div style='text-align: left'>$message</div>";
     }
 }
-?> data-toggle="tooltip" data-placement="{!! $position or 'bottom' !!}" title="{!! $message or '' !!}"
+?> data-toggle="tooltip" data-html="true" data-placement="{!! $position or 'bottom' !!}" title="{!! $message or '' !!}"
