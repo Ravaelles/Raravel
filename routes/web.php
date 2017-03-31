@@ -23,6 +23,9 @@ Route::group(['prefix' => 'project/{project}'], function () {
     // Class
     Route::get('add-model', 'ProjectController@addModel')->name('project.add-model');
     Route::post('add-model', 'ProjectController@addModel')->name('project.post-add-model');
+    
+    Route::get('add-controller', 'ProjectController@addController')->name('project.add-controller');
+    Route::post('add-controller', 'ProjectController@addController')->name('project.post-add-controller');
 
     Route::get('add-helper', 'ProjectController@addHelper')->name('project.add-helper');
     Route::post('add-helper', 'ProjectController@addHelper')->name('project.post-add-helper');

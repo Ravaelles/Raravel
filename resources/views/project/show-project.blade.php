@@ -45,16 +45,25 @@ $favicon = $project->getFavicon();
 
             <br />
 
+            <a class="btn btn-default" href="{!! route('project.add-controller', $project->getName()) !!}"
+               @include('partials.ui.tooltip', [
+           'message' => 'Will be placed in app/Controller'
+           ])>
+           Add controller
+            </a>
+
+        <br />
+
         <a class="btn btn-default" href="{!! route('project.add-helper', $project->getName()) !!}"
            @include('partials.ui.tooltip', [
            'message' => 'Will be placed in app/Helpers'
            ])>
            Add helper
-        </a>
+            </a>
 
-        <br />
+            <br />
 
-    <a class="btn btn-default" href="{!! route('project.add-class', $project->getName()) !!}"
+            <a class="btn btn-default" href="{!! route('project.add-class', $project->getName()) !!}"
        @include('partials.ui.tooltip', [
        'message' => 'Will be placed in app/Classes'
        ])>

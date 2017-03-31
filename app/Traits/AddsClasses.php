@@ -30,6 +30,28 @@ trait AddsClasses
         return view('actions.add-class')->with(compact('project'));
     }
 
+    public function addController(Request $request)
+    {
+        $project = $this->getProjectFromUrl();
+
+        // === Post ================================================================
+
+        if ($request->isMethod('post')) {
+            $className = $request->get('class');
+            $path = $project->getPath() . "app/Http/Controllers/$className.php";
+            $pathHuman = str_replace($project->getPath(), "", $path);
+
+            FileHandler::createFile($path)->useTemplate('controller', $request);
+
+            flash("Added class $pathHuman", 'success');
+            return redirect()->route('project.show', $project->getName());
+        }
+
+        // =========================================================================
+
+        return view('actions.add-controller')->with(compact('project'));
+    }
+
     public function addHelper(Request $request)
     {
         $project = $this->getProjectFromUrl();
