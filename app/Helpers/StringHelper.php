@@ -91,7 +91,7 @@ class StringHelper
      */
     public static function str_remove_from_both_sides($substringOnLeft, $string, $substringOnRight)
     {
-        return str_remove_left_from($substringOnLeft, str_remove_right_from($substringOnRight, $string));
+        return self::str_remove_left_last_from($substringOnLeft, self::str_remove_right_from($substringOnRight, $string));
     }
 
     /**

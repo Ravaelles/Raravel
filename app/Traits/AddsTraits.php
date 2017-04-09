@@ -16,6 +16,8 @@ trait AddsTraits
 
         if ($request->isMethod('post')) {
             $className = $request->get('class');
+            session(['last-class' => $class]);
+
             $functionName = $request->get('name');
 
             $path = $project->getPath() . "app/Traits/$className.php";

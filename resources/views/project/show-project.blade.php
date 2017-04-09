@@ -87,7 +87,7 @@ $favicon = $project->getFavicon();
             <div class="panel-heading">Functions</div>
             <div class="panel-body">
                 <a class="btn btn-default" href="{!! route('project.add-function', $project->getName()) !!}">
-                    Add function
+                    Add function + route
                 </a>
             </div>
         </div>

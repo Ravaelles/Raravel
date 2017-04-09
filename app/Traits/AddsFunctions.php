@@ -15,40 +15,52 @@ trait AddsFunctions
         // === Post ================================================================
 
         if ($request->isMethod('post')) {
-            $className = $request->get('class');
+            $class = $request->get('class');
+            session(['last-class' => $class]);
+
+            $classNameHuman = $this->getClassHumanName($class);
             $functionName = $request->get('name');
 
-            $path = $project->getPath() . "app/Classes/$className.php";
-            $nameHuman = str_replace($project->getPath(), "", $path);
+            $routesFile = $this->getRoutesFile();
 
-            FileHandler::createFile($path)->useTemplate('class', $request);
+            $functionString = $this->defineFunctionString($class, $functionName);
+            $routeString = $this->defineRouteString($classNameHuman, $functionName);
 
-            flash("Added function $nameHuman", 'success');
+            FileHandler::insertToTheEndOfClass($class, $functionString);
+            FileHandler::appendToFile($routesFile, $routeString);
+
+            flash("Added route to routes, function to $classNameHuman", 'success');
             return redirect()->route('project.show', $project->getName());
         }
 
         // =========================================================================
 
-        $classes = $this->getClasses();
+        $classes = $this->getClasses(true);
 
         return view('actions.add-function')->with(compact('project', 'classes'));
     }
 
     // =========================================================================
 
-    private function getClasses()
+    private function getClasses($onlyControllers = false)
     {
         $classes = [];
 
-        $lookInDirs = [
-            'app/' => 'Model',
-            'app/Http/Controllers' => 'Controller',
-            'app/Helpers/' => 'Helper',
-            'app/Classes/' => 'Class'
-        ];
+        if ($onlyControllers) {
+            $lookInDirs = [
+                'app/Http/Controllers/' => 'Controller',
+            ];
+        } else {
+            $lookInDirs = [
+                'app/' => 'Model',
+                'app/Http/Controllers/' => 'Controller',
+                'app/Helpers/' => 'Helper',
+                'app/Classes/' => 'Class'
+            ];
+        }
 
         foreach ($lookInDirs as $dir => $humanDirName) {
-            $dirPath = base_path($dir . "*.php");
+            $dirPath = $this->getProjectFromUrl()->getPath() . $dir . "*.php";
 //            dump(glob($dirPath));
             foreach (glob($dirPath) as $path) {
                 $filename = \App\Helpers\PathHelper::getFilenameByPath($path);
@@ -61,6 +73,17 @@ trait AddsFunctions
 //        dd($classes);
 
         return $classes;
+    }
+
+    // =========================================================================
+
+    private function defineFunctionString($class, $functionName)
+    {
+        return <<<EOF
+    public function $functionName() {
+        
+    }
+EOF;
     }
 
 }

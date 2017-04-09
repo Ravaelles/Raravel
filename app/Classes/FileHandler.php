@@ -3,6 +3,7 @@
 namespace App\Classes;
 
 use Illuminate\Http\Request;
+use \App\Helpers\StringHelper;
 
 class FileHandler
 {
@@ -16,7 +17,47 @@ class FileHandler
         $this->path = $path;
     }
 
-    // =========================================================================
+    // === Modify existing file ================================================
+
+    public static function prependToFile($file, $content)
+    {
+        $fileContent = file_get_contents($file);
+        if (!str_contains($fileContent, $content)) {
+            file_put_contents($file, $content . "\n" . $fileContent);
+        }
+    }
+
+    public static function appendToFile($file, $content)
+    {
+        $fileContent = file_get_contents($file);
+        $hasDoubleNewLine = ends_with($fileContent, "\n\n");
+        $hasSingleNewLine = ends_with($fileContent, "\n");
+        if (!$hasDoubleNewLine) {
+            $fileContent .= "\n";
+        }
+        if (!$hasSingleNewLine) {
+            $fileContent .= "\n";
+        }
+
+        if (!str_contains($fileContent, $content)) {
+            file_put_contents($file, $fileContent . $content);
+        }
+    }
+
+    public static function insertToTheEndOfClass($file, $content)
+    {
+        $fileContent = file_get_contents($file);
+
+        $lastBracketIndex = strrpos($fileContent, "}");
+        $preContent = substr($fileContent, 0, $lastBracketIndex) . "\n\n";
+        $postContent = "\n\n" . substr($fileContent, $lastBracketIndex);
+
+        if (!str_contains($fileContent, $content)) {
+            file_put_contents($file, $preContent . $content . $postContent);
+        }
+    }
+
+    // === Create new file =====================================================
 
     public static function createFile($path)
     {
@@ -33,7 +74,7 @@ class FileHandler
 
     public function ensureDirExists($path)
     {
-        $dir = \App\Helpers\StringHelper::str_remove_right_last_from("/", $path);
+        $dir = StringHelper::str_remove_right_last_from("/", $path);
         if (!file_exists($dir)) {
             mkdir($dir);
         }

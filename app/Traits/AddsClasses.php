@@ -16,6 +16,8 @@ trait AddsClasses
 
         if ($request->isMethod('post')) {
             $className = $request->get('class');
+            session(['last-class' => $class]);
+
             $path = $project->getPath() . "app/Classes/$className.php";
             $pathHuman = str_replace($project->getPath(), "", $path);
 
@@ -38,6 +40,8 @@ trait AddsClasses
 
         if ($request->isMethod('post')) {
             $className = $request->get('class');
+            session(['last-class' => $class]);
+
             $path = $project->getPath() . "app/Http/Controllers/$className.php";
             $pathHuman = str_replace($project->getPath(), "", $path);
 
@@ -60,6 +64,8 @@ trait AddsClasses
 
         if ($request->isMethod('post')) {
             $className = $request->get('class');
+            session(['last-class' => $class]);
+
             $path = $project->getPath() . "app/Helpers/$className.php";
             $pathHuman = str_replace($project->getPath(), "", $path);
 
@@ -82,6 +88,8 @@ trait AddsClasses
 
         if ($request->isMethod('post')) {
             $className = $request->get('class');
+            session(['last-class' => $class]);
+
             $path = $project->getPath() . "app/$className.php";
             $pathHuman = str_replace($project->getPath(), "", $path);
 
@@ -107,6 +115,13 @@ trait AddsClasses
 
         flash("Added $path", 'success');
         return redirect()->route('project.show', $project->getName());
+    }
+
+    // === Auxiliary ==============================================================
+
+    public function getClassHumanName($class)
+    {
+        return \App\Helpers\StringHelper::str_remove_from_both_sides("/", $class, ".");
     }
 
 }
