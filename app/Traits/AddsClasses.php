@@ -88,7 +88,7 @@ trait AddsClasses
 
         if ($request->isMethod('post')) {
             $className = $request->get('class');
-            session(['last-class' => $class]);
+            session(['last-class' => $className]);
 
             $path = $project->getPath() . "app/$className.php";
             $pathHuman = str_replace($project->getPath(), "", $path);
