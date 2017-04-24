@@ -80,7 +80,7 @@ class FileHandler
         }
     }
 
-    public function useTemplate($templateName, Request $request)
+    public function useTemplate($templateName, $request)
     {
         // Get raw file content from template
         $content = $this->getTemplateContent($templateName);
@@ -100,9 +100,9 @@ class FileHandler
         return file_get_contents(resource_path("views/templates/$templateName.php"));
     }
 
-    private function populateTemplateContent($content, Request $request)
+    private function populateTemplateContent($content, Request $request = null)
     {
-        $className = $request->get('class');
+        $className = $request !== null ? $request->get('class') : '';
 
         // =========================================================================
 

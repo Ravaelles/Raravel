@@ -37,10 +37,12 @@ Route::group(['prefix' => 'project/{project}'], function () {
     Route::post('add-trait', 'ProjectController@addTrait')->name('project.post-add-trait');
 
     // Function
-//    Route::get('add-route', 'ProjectController@addRoute')->name('project.add-class');
-//    Route::post('add-route', 'ProjectController@addRoute')->name('project.post-add-class');
     Route::get('add-function', 'ProjectController@addFunction')->name('project.add-function');
     Route::post('add-function', 'ProjectController@addFunction')->name('project.post-add-function');
+
+    // Function
+    Route::get('add-entire-view', 'ProjectController@addEntireView')->name('project.add-entire-view');
+    Route::post('add-entire-view', 'ProjectController@addEntireView')->name('project.post-add-entire-view');
 
     // Install
 //    Route::get('add-route', 'ProjectController@addRoute')->name('project.add-class');

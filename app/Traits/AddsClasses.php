@@ -124,4 +124,49 @@ trait AddsClasses
         return \App\Helpers\StringHelper::str_remove_from_both_sides("/", $class, ".");
     }
 
+    private function getClasses($onlyControllers = false)
+    {
+        $classes = [];
+
+        if ($onlyControllers) {
+            $lookInDirs = [
+                'app/Http/Controllers/' => 'Controller',
+            ];
+        } else {
+            $lookInDirs = [
+                'app/' => 'Model',
+                'app/Http/Controllers/' => 'Controller',
+                'app/Helpers/' => 'Helper',
+                'app/Classes/' => 'Class'
+            ];
+        }
+
+        foreach ($lookInDirs as $dir => $humanDirName) {
+            $dirPath = $this->getProjectFromUrl()->getPath() . $dir . "*.php";
+//            dump(glob($dirPath));
+            foreach (glob($dirPath) as $path) {
+                $filename = \App\Helpers\PathHelper::getFilenameByPath($path);
+                $classes[$humanDirName][$path] = $filename;
+//                $classes[$path] = $humanDirName . "/" . $filename;
+            }
+        }
+
+//        echo "<br />END";
+//        dd($classes);
+
+        return $classes;
+    }
+
+    // =========================================================================
+
+    public function defineClassNameLowercase($className)
+    {
+        return str_replace("controller", "", strtolower($className));
+    }
+
+    public function defineFunctionNameKebabCase($functionName)
+    {
+        return kebab_case($functionName);
+    }
+
 }

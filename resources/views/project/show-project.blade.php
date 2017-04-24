@@ -84,10 +84,16 @@ $favicon = $project->getFavicon();
 
     <div class="col-md-3">
         <div class="panel panel-default panel-full-buttons">
-            <div class="panel-heading">Functions</div>
+            <div class="panel-heading">Complex</div>
             <div class="panel-body">
                 <a class="btn btn-default" href="{!! route('project.add-function', $project->getName()) !!}">
                     Add function + route
+                </a>
+
+                <br />
+
+                <a class="btn btn-default" href="{!! route('project.add-entire-view', $project->getName()) !!}">
+                    Add view + route
                 </a>
             </div>
         </div>
