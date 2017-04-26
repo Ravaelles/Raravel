@@ -40,7 +40,8 @@
             {{-- ############################################################################# --}}
 
             <div class="error-buttons">
-                <a class="btn" onclick="window.history.back()">Go back</a>
+                <!--<a class="btn" onclick="window.history.back()">Go back</a>-->
+                <a class="btn" href="{{ url()->previous() }}">Go back</a>
                 <div class="inline-string">or</div>
                 <a class="btn" href="/">Show mainpage</a>
             </div>

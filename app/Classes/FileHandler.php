@@ -49,7 +49,7 @@ class FileHandler
         $fileContent = file_get_contents($file);
 
         $lastBracketIndex = strrpos($fileContent, "}");
-        $preContent = substr($fileContent, 0, $lastBracketIndex) . "\n\n";
+        $preContent = substr($fileContent, 0, $lastBracketIndex) . "\n";
         $postContent = "\n\n" . substr($fileContent, $lastBracketIndex);
 
         if (!str_contains($fileContent, $content)) {

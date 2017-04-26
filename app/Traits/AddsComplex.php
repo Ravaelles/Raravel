@@ -28,10 +28,10 @@ trait AddsComplex
 //            dump($viewName);
 //            die;
 
-            $functionContent = "return view('$viewParent.$viewName');";
+            $functionContent = "return view('$viewParent." . str_replace(".blade.php", "", $viewName) . "');";
 
+            $this->insertRoute($class, $functionName, $viewName);
             $this->insertView($viewParent, $viewName);
-            $this->insertRoute($class, $functionName);
             $this->insertFunction($class, $functionName, $functionContent);
 
             flash("Added route and function and view $classNameHuman.$viewName", 'success');

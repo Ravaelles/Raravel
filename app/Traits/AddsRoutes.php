@@ -30,14 +30,13 @@ trait AddsRoutes
         return view('actions.add-route')->with(compact('project'));
     }
 
-    public function insertRoute($className, $functionName)
+    public function insertRoute($class, $functionName, $viewName = null)
     {
         $routesFile = $this->getRoutesFile();
+        $routeString = $this->defineRouteString($class, $functionName, $viewName);
 
-        $routeString = $this->defineRouteString($className, $functionName);
-        dump($className);
-        dump($functionName);
-        dd($routeString);
+//        dump($routeString);
+//        die;
 
         FileHandler::appendToFile($routesFile, $routeString);
     }
@@ -49,13 +48,24 @@ trait AddsRoutes
         return $this->getProjectFromUrl()->getPath() . "routes/web.php";
     }
 
-    public function defineRouteString($className, $functionName)
+    public function defineRouteString($className, $functionName, $viewName)
     {
-        $classNameLowercase = $this->defineClassNameLowercase($className);
+//        $classNameHuman = $this->getClassHumanName($className);
+        $classNameLowercase = $this->defineClassNameLowercase($this->getClassHumanName($className));
         $functionNameKebabCase = $this->defineFunctionNameKebabCase($functionName);
-        $functionName = $routeString = "Route::get('$classNameLowercase/$functionNameKebabCase', "
-            . "'$className@$functionName')"
-            . "->name('$classNameLowercase.$functionNameKebabCase');";
+
+        $routeName = $classNameLowercase . "." . str_replace(".blade.php", "", $viewName);
+
+        $routeFunction = $this->getClassHumanName($className) . "@" . $functionNameKebabCase;
+        $routeName = ($routeName ?: "$classNameLowercase.$functionNameKebabCase");
+
+//        dump('defineClassNameLowercase = ' . $classNameLowercase);
+//        dump('$functionNameKebabCase = ' . $functionNameKebabCase);
+//        dump('$routeName = ' . $routeName);
+
+        $routeString = "Route::get('$classNameLowercase/$functionNameKebabCase', '$routeFunction')"
+            . "->name('$routeName');";
+
         return $routeString;
     }
 

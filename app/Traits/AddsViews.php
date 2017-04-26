@@ -43,7 +43,10 @@ trait AddsViews
 
 //        dump($path);
 //        die;
-        FileHandler::createFile($path)->useTemplate('view', $request);
+
+        if (!file_exists($path)) {
+            FileHandler::createFile($path)->useTemplate('view', $request);
+        }
     }
 
 }
