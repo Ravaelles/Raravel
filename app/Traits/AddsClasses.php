@@ -39,10 +39,10 @@ trait AddsClasses
         // === Post ================================================================
 
         if ($request->isMethod('post')) {
-            $className = $request->get('class');
+            $class = $request->get('class');
             session(['last-class' => $class]);
 
-            $path = $project->getPath() . "app/Http/Controllers/$className.php";
+            $path = $project->getPath() . "app/Http/Controllers/$class.php";
             $pathHuman = str_replace($project->getPath(), "", $path);
 
             FileHandler::createFile($path)->useTemplate('controller', $request);

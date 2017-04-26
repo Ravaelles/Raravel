@@ -53,3 +53,11 @@ Route::group(['prefix' => 'project/{project}'], function () {
 // === HQ ===========================================================
 
 Route::get('hq/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+Route::get('hq/whoami', 'HQController@whoAmI');
+
+Route::get('hq/phpinfo', 'HQController@phpinfo');
+
+Route::get('hq/session', 'HQController@session');
+
+Route::get('hq/session-destroy', 'HQController@sessionDestroy');

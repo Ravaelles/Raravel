@@ -1,7 +1,15 @@
 <div class="panel panel-default panel-full-buttons">
-    <div class="panel-heading">Install</div>
+    <div class="panel-heading">Static</div>
     <div class="panel-body">
-        <div class="dropdown">
+
+        <a class="btn btn-default" href="{!! route('project.add-eloquent', $project->getName()) !!}"
+           @include('partials.ui.tooltip', [
+           'message' => 'Add hardcoded model that will be used in place of the standard model'
+           ])>
+           Add MongoDB Eloquent
+    </a>
+
+    <div class="dropdown">
 
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" 
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
