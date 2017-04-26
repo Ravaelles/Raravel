@@ -57,6 +57,7 @@ trait AddsComplex
 
             $classNameHuman = $this->getClassHumanName($class);
             $functionName = $request->get('name');
+            $functionContent = "";
 
             $this->insertRoute($class, $functionName);
             $this->insertFunction($class, $functionName, $functionContent);

@@ -54,9 +54,13 @@ trait AddsRoutes
         $classNameLowercase = $this->defineClassNameLowercase($this->getClassHumanName($className));
         $functionNameKebabCase = $this->defineFunctionNameKebabCase($functionName);
 
-        $routeName = $classNameLowercase . "." . str_replace(".blade.php", "", $viewName);
+        if ($viewName != null) {
+            $routeName = $classNameLowercase . "." . str_replace(".blade.php", "", $viewName);
+        } else {
+            $routeName = $classNameLowercase . "." . $functionNameKebabCase;
+        }
 
-        $routeFunction = $this->getClassHumanName($className) . "@" . $functionNameKebabCase;
+        $routeFunction = $this->getClassHumanName($className) . "@" . $functionName;
         $routeName = ($routeName ?: "$classNameLowercase.$functionNameKebabCase");
 
 //        dump('defineClassNameLowercase = ' . $classNameLowercase);
