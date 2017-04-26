@@ -43,6 +43,10 @@ class Project
 
     public static function getProjectByName($projectName)
     {
+        if ($projectName == null) {
+            return null;
+        }
+
         $groups = self::getProjectsGrouped();
         foreach ($groups as $group) {
             foreach ($group['projects'] as $project) {
