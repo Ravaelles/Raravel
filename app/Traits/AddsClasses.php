@@ -15,10 +15,10 @@ trait AddsClasses
         // === Post ================================================================
 
         if ($request->isMethod('post')) {
-            $className = $request->get('class');
+            $class = $request->get('class');
             session(['last-class' => $class]);
 
-            $path = $project->getPath() . "app/Classes/$className.php";
+            $path = $project->getPath() . "app/Classes/$class.php";
             $pathHuman = str_replace($project->getPath(), "", $path);
 
             FileHandler::createFile($path)->useTemplate('class', $request);
