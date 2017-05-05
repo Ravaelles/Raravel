@@ -84,8 +84,14 @@
             </a>
 
             <br />
+            <a class="btn btn-default" href="{!! route('project.add-post-function', $project->getName()) !!}"
+               @tooltip('Add POST function snippet to proper class, add route to web.php')>
+               Add POST function + route
+            </a>
 
-        <a class="btn btn-default" href="{!! route('project.add-entire-view', $project->getName()) !!}"
+            <br />
+
+            <a class="btn btn-default" href="{!! route('project.add-entire-view', $project->getName()) !!}"
            @tooltip('Create view, add function snippet to proper class, add route to web.php')>
            Add view + route
         </a>

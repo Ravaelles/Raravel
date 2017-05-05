@@ -40,7 +40,11 @@ Route::group(['prefix' => 'project/{project}'], function () {
     Route::get('add-function', 'ProjectController@addRouteAndFunction')->name('project.add-function');
     Route::post('add-function', 'ProjectController@addRouteAndFunction')->name('project.post-add-function');
 
-    // Function
+    // Post Function
+    Route::get('add-post-function', 'ProjectController@addPostFunction')->name('project.add-post-function');
+    Route::post('add-post-function', 'ProjectController@addPostFunction')->name('project.post-add-post-function');
+
+    // View + Function + Route
     Route::get('add-entire-view', 'ProjectController@addEntireView')->name('project.add-entire-view');
     Route::post('add-entire-view', 'ProjectController@addEntireView')->name('project.post-add-entire-view');
 

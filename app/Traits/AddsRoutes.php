@@ -30,10 +30,10 @@ trait AddsRoutes
         return view('actions.add-route')->with(compact('project'));
     }
 
-    public function insertRoute($class, $functionName, $viewName = null)
+    public function insertRoute($class, $functionName, $viewName = null, $method = 'get')
     {
         $routesFile = $this->getRoutesFile();
-        $routeString = $this->defineRouteString($class, $functionName, $viewName);
+        $routeString = $this->defineRouteString($class, $functionName, $viewName, $method);
 
 //        dump($routeString);
 //        die;
@@ -48,7 +48,7 @@ trait AddsRoutes
         return $this->getProjectFromUrl()->getPath() . "routes/web.php";
     }
 
-    public function defineRouteString($className, $functionName, $viewName)
+    public function defineRouteString($className, $functionName, $viewName, $method)
     {
 //        $classNameHuman = $this->getClassHumanName($className);
         $classNameLowercase = $this->defineClassNameLowercase($this->getClassHumanName($className));
@@ -67,7 +67,7 @@ trait AddsRoutes
 //        dump('$functionNameKebabCase = ' . $functionNameKebabCase);
 //        dump('$routeName = ' . $routeName);
 
-        $routeString = "Route::get('$classNameLowercase/$functionNameKebabCase', '$routeFunction')"
+        $routeString = "Route::$method('$classNameLowercase/$functionNameKebabCase', '$routeFunction')"
             . "->name('$routeName');";
 
         return $routeString;

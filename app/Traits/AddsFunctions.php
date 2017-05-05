@@ -14,12 +14,29 @@ trait AddsFunctions
         FileHandler::insertToTheEndOfClass($className, $functionString);
     }
 
+    public function insertPostFunction($className, $functionName, $functionContent = '')
+    {
+        $functionString = $this->definePostFunctionString($className, $functionName, $functionContent);
+        FileHandler::insertToTheEndOfClass($className, $functionString);
+    }
+
     // =========================================================================
 
     private function defineFunctionString($class, $functionName, $content = '')
     {
         return <<<EOF
     public function $functionName() {
+        $content
+    }
+EOF;
+    }
+
+    private function definePostFunctionString($class, $functionName, $content = '')
+    {
+        $requestString = 'Request $request';
+
+        return <<<EOF
+    public function $functionName($requestString) {
         $content
     }
 EOF;
