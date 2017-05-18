@@ -37,6 +37,8 @@ trait AddsViews
             $viewName .= ".blade.php";
         }
 
+        $parentName = kebab_case($parentName);
+
         $path = $project->getPath() . "resources/views/$parentName/$viewName";
 //        $path = "$viewName.php";
 //        $path = $viewName;
