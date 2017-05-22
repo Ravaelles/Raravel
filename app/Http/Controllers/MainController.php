@@ -14,4 +14,10 @@ class MainController extends Controller
         return view('main.dashboard')->with(compact('projectsGrouped'));
     }
 
+    // =========================================================================
+
+    public function test() {
+        return view('main.test');
+    }
+
 }

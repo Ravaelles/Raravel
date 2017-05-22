@@ -65,3 +65,5 @@ Route::get('hq/phpinfo', 'HQController@phpinfo');
 Route::get('hq/session', 'HQController@session');
 
 Route::get('hq/session-destroy', 'HQController@sessionDestroy');
+
+Route::get('test', 'MainController@test')->name('main.test');

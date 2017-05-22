@@ -164,6 +164,11 @@ trait AddsClasses
         return str_replace("controller", "", strtolower($className));
     }
 
+    public function defineClassNameKebabCase($className)
+    {
+        return kebab_case(str_ireplace("controller", "", $className));
+    }
+
     public function defineFunctionNameKebabCase($functionName)
     {
         return kebab_case($functionName);

@@ -23,7 +23,7 @@ trait AddsComplex
 
             $functionName = $request->get('name');
             $classNameHuman = $this->getClassHumanName($class);
-            $viewParent = $this->defineClassNameLowercase($classNameHuman);
+            $viewParent = $this->defineClassNameKebabCase($classNameHuman);
             $viewName = $request->get('view-name');
 //            dump($class);
 //            dump($classNameHuman);

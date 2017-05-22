@@ -51,7 +51,7 @@ trait AddsRoutes
     public function defineRouteString($className, $functionName, $viewName, $method)
     {
 //        $classNameHuman = $this->getClassHumanName($className);
-        $classNameLowercase = $this->defineClassNameLowercase($this->getClassHumanName($className));
+        $classNameLowercase = $this->defineClassNameKebabCase($this->getClassHumanName($className));
         $functionNameKebabCase = $this->defineFunctionNameKebabCase($functionName);
 
         if ($viewName != null) {
