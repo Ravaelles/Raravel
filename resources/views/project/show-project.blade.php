@@ -18,7 +18,7 @@
             <div class="panel panel-default panel-full-buttons">
             <div class="panel-heading">Static</div>
             <div class="panel-body">
-                    
+
             </div>
     </div>
     </div>-->
@@ -35,7 +35,7 @@
                    Add class
             </a>
 
-            <br />
+                <br />
 
             <a class="btn btn-default" href="{!! route('project.add-controller', $project->getName()) !!}"
                @include('partials.ui.tooltip', [
@@ -44,7 +44,7 @@
                Add controller
             </a>
 
-        <br />
+            <br />
 
         <a class="btn btn-default" href="{!! route('project.add-helper', $project->getName()) !!}"
            @include('partials.ui.tooltip', [
@@ -53,16 +53,15 @@
            Add helper
             </a>
 
-            <br />
+        <br />
 
-            <a class="btn btn-default" href="{!! route('project.add-model', $project->getName()) !!}"
-               @include('partials.ui.tooltip', [
-               'message' => 'Will be placed in app/'
-               ])>
-               Add model
+    <a class="btn btn-default" href="{!! route('project.add-model', $project->getName()) !!}"
+       @tooltip('Will be placed in app/')
+       >
+       Add model
             </a>
 
-            <br />
+    <br />
 
 <a class="btn btn-default" href="{!! route('project.add-trait', $project->getName()) !!}"
    @include('partials.ui.tooltip', [
@@ -76,27 +75,43 @@
 
     <div class="col-md-4">
         <div class="panel panel-default panel-full-buttons">
-            <div class="panel-heading">Complex</div>
+            <div class="panel-heading">Routes</div>
             <div class="panel-body">
                 <a class="btn btn-default" href="{!! route('project.add-function', $project->getName()) !!}"
-                   @tooltip('Add function snippet to proper class, add route to web.php')>
-                   Add function + route
+                   @tooltip('Add function snippet to proper class, add route to web.php')
+                   >
+                   Add route + function
             </a>
 
             <br />
             <a class="btn btn-default" href="{!! route('project.add-post-function', $project->getName()) !!}"
-               @tooltip('Add POST function snippet to proper class, add route to web.php')>
-               Add POST function + route
+               @tooltip('Add POST function snippet to proper class, add route to web.php')
+               >
+               Add route + POST function
+            </a>
+
+        <br />
+
+    <a class="btn btn-default" href="{!! route('project.add-entire-view', $project->getName()) !!}"
+       @tooltip('Create view, add function snippet to proper class, add route to web.php')
+       >
+       Add route + function + view
+            </a>
+    </div>
+        </div>
+
+        <div class="panel panel-default panel-full-buttons">
+            <div class="panel-heading">Function</div>
+            <div class="panel-body">
+                <a class="btn btn-default" href="{!! route('project.add-function', $project->getName()) !!}"
+                   @tooltip('Add function snippet to proper class, add route to web.php')
+                   >
+                   Add function + route
             </a>
 
             <br />
-
-            <a class="btn btn-default" href="{!! route('project.add-entire-view', $project->getName()) !!}"
-           @tooltip('Create view, add function snippet to proper class, add route to web.php')>
-           Add view + route
-        </a>
-    </div>
-</div>
+            </div>
+        </div>
 </div>
 
     <div class="col-md-4">

@@ -48,6 +48,10 @@ Route::group(['prefix' => 'project/{project}'], function () {
     Route::get('add-entire-view', 'ProjectController@addEntireView')->name('project.add-entire-view');
     Route::post('add-entire-view', 'ProjectController@addEntireView')->name('project.post-add-entire-view');
 
+    // Partial
+    Route::get('add-partial', 'ProjectController@addPartial')->name('project.add-partial');
+    Route::post('add-partial', 'ProjectController@addPartial')->name('project.post-add-partial');
+
     // Install
 //    Route::get('add-route', 'ProjectController@addRoute')->name('project.add-class');
 //    Route::post('add-route', 'ProjectController@addRoute')->name('project.post-add-class');

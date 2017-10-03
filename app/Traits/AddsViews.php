@@ -8,6 +8,27 @@ use App\Classes\FileHandler;
 trait AddsViews
 {
 
+    public function addPartial($parentName, $viewName, $request = null)
+    {
+        $project = $this->getProjectFromUrl();
+
+        if (!ends_with($viewName, ".blade.php")) {
+            $viewName .= ".blade.php";
+        }
+
+        $parentName = kebab_case($parentName);
+
+        $path = $project->getPath() . "resources/views/$parentName/$viewName";
+//        $path = "$viewName.php";
+//        $path = $viewName;
+//        dump($path);
+//        die;
+
+        if (!file_exists($path)) {
+            FileHandler::createFile($path)->useTemplate('view', $request);
+        }
+    }
+
 //    public function addView(Request $request)
 //    {
 //        $project = $this->getProjectFromUrl();

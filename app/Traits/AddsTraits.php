@@ -16,7 +16,7 @@ trait AddsTraits
 
         if ($request->isMethod('post')) {
             $className = $request->get('class');
-            session(['last-class' => $class]);
+            session(['last-class' => $className]);
 
             $functionName = $request->get('name');
 
