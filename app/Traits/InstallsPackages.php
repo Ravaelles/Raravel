@@ -17,6 +17,9 @@ trait InstallsPackages
     {
         $installer = Installer::getByName($installer);
         $project = Project::getProjectByName($project);
+//        dd($installer);
+
+        $output = null;
 
         if (!empty($installer->getCommand())) {
             echo DebugHelper::getGreenSection("Running command: " . $installer->getCommand());
@@ -24,14 +27,19 @@ trait InstallsPackages
             ConsoleHelper::printConsoleOutput($output);
         }
 
+        if (strlen($output) <= 1 || str_contains($output, ["failed", "revert"])) {
+            echo DebugHelper::getRedSection("Exiting because installation has failed.");
+            die;
+        }
+
         if (!empty($installer->getProvider())) {
             echo DebugHelper::getGreenSection("Adding provider: " . $installer->getProvider());
-            ConfigAppHelper::addServiceProvider($installer->getProvider());
+            ConfigAppHelper::addServiceProvider($installer->getProvider(), $project);
         }
 
         if (!empty($installer->getAlias())) {
             echo DebugHelper::getGreenSection("Adding alias: " . $installer->getAlias());
-            ConfigAppHelper::addAlias($installer->getAlias());
+            ConfigAppHelper::addAlias($installer->getAlias(), $project);
         }
 
         if (!empty($installer->getRoute())) {

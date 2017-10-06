@@ -2,19 +2,21 @@
 
 namespace App\Helpers;
 
+use App\Project;
+
 class ConfigAppHelper
 {
 
-    public static function addServiceProvider($providerString)
+    public static function addServiceProvider($providerString, Project $project)
     {
         $providerString = self::formatString($providerString);
-        self::modifyAppPhpFile("'providers' => [", $providerString);
+        self::modifyAppPhpFile($project->getPath(), "'providers' => [", $providerString);
     }
 
-    public static function addAlias($aliasString)
+    public static function addAlias($aliasString, Project $project)
     {
         $aliasString = self::formatString($aliasString);
-        self::modifyAppPhpFile("'aliases' => [", $aliasString);
+        self::modifyAppPhpFile($project->getPath(), "'aliases' => [", $aliasString);
     }
 
     // =========================================================================
@@ -34,12 +36,16 @@ class ConfigAppHelper
         return $string;
     }
 
-    private static function modifyAppPhpFile($offsetString, $insertString)
+    private static function modifyAppPhpFile($directory, $offsetString, $insertString)
     {
-        $path = base_path('config/app.php');
+//        $path = base_path('config/app.php');
+        $path = $directory . 'config/app.php';
         $content = file_get_contents($path);
 
         if (str_contains($content, $insertString)) {
+//            dump($content);
+//            dump($insertString);
+            echo DebugHelper::getBlueLine("String already there.<br /><br />");
             return;
         }
 
@@ -48,6 +54,9 @@ class ConfigAppHelper
         $content = substr($content, 0, $index - 1)
             . $insertString
             . substr($content, $index);
+
+//        var_dump($content);
+//        exit;
 
         file_put_contents($path, $content);
     }

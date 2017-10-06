@@ -14,6 +14,8 @@ class ConsoleHelper
 //        dd($fullCommand);
         $output = shell_exec($fullCommand);
         self::printConsoleOutput($output);
+
+        return $output;
     }
 
     public static function executeCommand($cmd)
@@ -44,6 +46,8 @@ class ConsoleHelper
         $string = implode("\n", $lines);
 
         echo "<pre>" . $string . "</pre>";
+
+        return $string;
     }
 
 }
