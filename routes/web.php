@@ -60,6 +60,19 @@ Route::group(['prefix' => 'project/{project}'], function () {
 
 // === HQ ===========================================================
 
+Route::get('hq/mongo/{class}/{id?}/remove', 'MongoController@remove')
+    ->name('mongo.remove')->where('id', '.*');
+Route::get('hq/mongo/{class}/{id?}/edit', 'MongoController@edit')
+    ->name('mongo.edit')->where('id', '.*');
+Route::post('hq/mongo/{class}/{id?}/edit', 'MongoController@edit')
+    ->name('mongo.update')->where('id', '.*');
+Route::get('hq/mongo/{class}/add', 'MongoController@edit')
+    ->name('mongo.add');
+Route::post('hq/mongo/{class}/add', 'MongoController@edit')
+    ->name('mongo.store');
+Route::get('hq/mongo/{class?}/{id?}', 'MongoController@show')
+    ->name('mongo.show')->where('id', '.*');
+
 Route::get('hq/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 Route::get('hq/whoami', 'HQController@whoAmI');

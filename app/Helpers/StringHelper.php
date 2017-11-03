@@ -112,4 +112,12 @@ class StringHelper
         return substr($string, 0, strrpos($string, $substringOnLeft));
     }
 
+    // === JSON ===========================================================
+
+    public static function isValidJSON(...$args)
+    {
+        json_decode(...$args);
+        return (json_last_error() === JSON_ERROR_NONE);
+    }
+
 }

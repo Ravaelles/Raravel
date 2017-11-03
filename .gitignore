@@ -14,3 +14,4 @@ uploaded.lnk
 uploaded
 tests/_output/*
 resources/views/main/test.blade.php
+*.lnk
