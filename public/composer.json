@@ -1,5 +1,0 @@
-{
-    "require": {
-        "rap2hpoutre/laravel-log-viewer": "^0.8.1"
-    }
-}

@@ -5,11 +5,8 @@ namespace App;
 use Carbon\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model as Moloquent; // Jenssegers MongoDB v. 3+
 
-//use Jenssegers\Mongodb\Model as Moloquent; // Jenssegers MongoDB v. < 3.0
-
 class Eloquent extends Moloquent
 {
-
     /**
      * Auxiliary constant that allows to static access.
      */
@@ -96,5 +93,4 @@ class Eloquent extends Moloquent
     {
         return "<span style='color:rgba(200,200,200,0.8);font-weight:bold;'>$message</span>";
     }
-
 }
