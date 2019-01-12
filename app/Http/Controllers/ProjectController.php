@@ -15,7 +15,6 @@ use App\Traits\InstallsPackages;
 
 class ProjectController extends Controller
 {
-
     use AddsClasses,
         AddsComplex,
         AddsFunctions,
@@ -32,5 +31,4 @@ class ProjectController extends Controller
         $project = Project::getProjectByName($projectName);
         return view('project.show-project')->with(compact('project', 'installers'));
     }
-
 }

@@ -7,7 +7,6 @@ use App\Project;
 
 class MainController extends Controller
 {
-
     public function index()
     {
         $projectsGrouped = Project::getProjectsGrouped();
@@ -16,8 +15,8 @@ class MainController extends Controller
 
     // =========================================================================
 
-    public function test() {
+    public function test()
+    {
         return view('main.test');
     }
-
 }

@@ -7,7 +7,6 @@ use App\Classes\FileHandler;
 
 trait AddsFunctions
 {
-
     public function insertFunction($className, $functionName, $functionContent = '')
     {
         $functionString = $this->defineFunctionString($className, $functionName, $functionContent);
@@ -25,7 +24,8 @@ trait AddsFunctions
     private function defineFunctionString($class, $functionName, $content = '')
     {
         return <<<EOF
-    public function $functionName() {
+    public function $functionName()
+    {
         $content
     }
 EOF;
@@ -36,10 +36,10 @@ EOF;
         $requestString = 'Request $request';
 
         return <<<EOF
-    public function $functionName($requestString) {
+    public function $functionName($requestString) 
+    {
         $content
     }
 EOF;
     }
-
 }

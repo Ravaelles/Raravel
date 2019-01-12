@@ -6,7 +6,6 @@ use App\Helpers\RegexHelper;
 
 class Installer
 {
-
     public static function getInstallers()
     {
         // === Parse installers json ===============================================
@@ -138,5 +137,4 @@ class Installer
     {
         $this->route = $route;
     }
-
 }

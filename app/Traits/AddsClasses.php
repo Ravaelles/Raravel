@@ -131,6 +131,7 @@ trait AddsClasses
         if ($onlyControllers) {
             $lookInDirs = [
                 'app/Http/Controllers/' => 'Controller',
+                'app/Modules/*/Controllers/' => 'Controller',
             ];
         } else {
             $lookInDirs = [

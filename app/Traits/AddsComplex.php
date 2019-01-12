@@ -7,7 +7,6 @@ use App\Classes\FileHandler;
 
 trait AddsComplex
 {
-
     /**
      * View + Function + Route
      */
@@ -109,5 +108,4 @@ trait AddsComplex
 
         return view('actions.add-post-function')->with(compact('project', 'classes'));
     }
-
 }

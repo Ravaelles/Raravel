@@ -6,7 +6,6 @@ use App\Helpers\StringHelper;
 
 class Project
 {
-
     private $path;
     private $name;
 
@@ -153,5 +152,4 @@ class Project
     {
         return $this->name;
     }
-
 }

@@ -7,7 +7,6 @@ use \App\Helpers\StringHelper;
 
 class FileHandler
 {
-
     private $path;
 
     // =========================================================================
@@ -50,7 +49,7 @@ class FileHandler
 
         $lastBracketIndex = strrpos($fileContent, "}");
         $preContent = substr($fileContent, 0, $lastBracketIndex) . "\n";
-        $postContent = "\n\n" . substr($fileContent, $lastBracketIndex);
+        $postContent = "\n" . substr($fileContent, $lastBracketIndex);
 
         if (!str_contains($fileContent, $content)) {
             file_put_contents($file, $preContent . $content . $postContent);
@@ -112,5 +111,4 @@ class FileHandler
 
         return $content;
     }
-
 }

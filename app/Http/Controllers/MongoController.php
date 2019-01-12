@@ -8,8 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Helpers\ClassHelper;
 
-class MongoController extends Controller {
-
+class MongoController extends Controller
+{
     public function show($class = "", $id = "")
     {
         if ($class == "") {
@@ -30,13 +30,11 @@ class MongoController extends Controller {
                 $objects = $className::where('_id', $id)->paginate(50);
                 if (count($objects) <= 0) {
                     echo "<style>b { "
-                    . "font-size: 110%; color:#0ae; padding-left:5px; padding-right:5px; "
-                    . "}</style>";
+                        . "font-size: 110%; color:#0ae; padding-left:5px; padding-right:5px; "
+                        . "}</style>";
                     die("<b>$className</b> with id <b>'$id'</b> does not exist");
                 }
-            }
-
-            // === Paginate ===========================================================
+            } // === Paginate ===========================================================
             else {
                 $objects = $className::paginate(50);
             }
@@ -63,13 +61,11 @@ class MongoController extends Controller {
 
             if ($object === null) {
                 echo "<style>b { "
-                . "font-size: 110%; color:#0ae; padding-left:5px; padding-right:5px; "
-                . "}</style>";
+                    . "font-size: 110%; color:#0ae; padding-left:5px; padding-right:5px; "
+                    . "}</style>";
                 die("<b>$className</b> with id <b>'$id'</b> does not exist");
             }
-        }
-
-        // ADD MODE
+        } // ADD MODE
         else {
             $object = $className::orderBy('_id', 'DESC')->take(1)->first();
             if ($object !== null) {
@@ -145,13 +141,11 @@ class MongoController extends Controller {
                 $actionTaken = $isEditMode ? 'Updated' : 'Created';
                 \Flash::success("$actionTaken $class '" . $this->getObjectDescription($object) . "'!");
                 return redirect()->route('mongo.show', [$class]);
-            }
-
-            // === Error, get back =================================================
+            } // === Error, get back =================================================
             else {
                 \Flash::error("Invalid JSON for the field '$invalidJsonKey'!");
                 return redirect()->route('mongo.edit', [$class, $id])
-                        ->withInput();
+                    ->withInput();
             }
         }
 
@@ -160,7 +154,7 @@ class MongoController extends Controller {
         $query = $class;
 
         return view('mongo.mongo-edit')->with(compact(
-                    'object', 'query', 'class', 'id', 'isEditMode'
+            'object', 'query', 'class', 'id', 'isEditMode'
         ));
     }
 
@@ -201,5 +195,4 @@ class MongoController extends Controller {
 
         return $models;
     }
-
 }
