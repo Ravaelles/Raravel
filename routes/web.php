@@ -23,7 +23,7 @@ Route::group(['prefix' => 'project/{project}'], function () {
     // Class
     Route::get('add-model', 'ProjectController@addModel')->name('project.add-model');
     Route::post('add-model', 'ProjectController@addModel')->name('project.post-add-model');
-    
+
     Route::get('add-controller', 'ProjectController@addController')->name('project.add-controller');
     Route::post('add-controller', 'ProjectController@addController')->name('project.post-add-controller');
 
@@ -32,6 +32,9 @@ Route::group(['prefix' => 'project/{project}'], function () {
 
     Route::get('add-class', 'ProjectController@addClass')->name('project.add-class');
     Route::post('add-class', 'ProjectController@addClass')->name('project.post-add-class');
+
+    Route::get('add-service', 'ProjectController@addService')->name('project.add-service');
+    Route::post('add-service', 'ProjectController@addService')->name('project.post-add-service');
 
     Route::get('add-trait', 'ProjectController@addTrait')->name('project.add-trait');
     Route::post('add-trait', 'ProjectController@addTrait')->name('project.post-add-trait');
@@ -84,3 +87,5 @@ Route::get('hq/session', 'HQController@session');
 Route::get('hq/session-destroy', 'HQController@sessionDestroy');
 
 Route::get('test', 'MainController@test')->name('main.test');
+
+Route::get('tests/{params}', 'TestsController@run')->name('tests');

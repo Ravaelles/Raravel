@@ -98,9 +98,9 @@ class StringHelper
      * Removes everything on right from given substring e.g.<br />
      * str_remove_right_from("This is Michael_Jordan.txt", ".txt") returns "This is Michael_Jordan"
      */
-    public static function str_remove_right_from($substringOnLeft, $string)
+    public static function str_remove_right_from($substringOnRight, $string)
     {
-        return substr($string, 0, strpos($string, $substringOnLeft));
+        return substr($string, 0, strpos($string, $substringOnRight));
     }
 
     /**

@@ -7,7 +7,6 @@ use App\Classes\FileHandler;
 
 trait AddsClasses
 {
-
     public function addClass(Request $request)
     {
         $project = $this->getProjectFromUrl();
@@ -30,6 +29,30 @@ trait AddsClasses
         // =========================================================================
 
         return view('actions.add-class')->with(compact('project'));
+    }
+
+    public function addService(Request $request)
+    {
+        $project = $this->getProjectFromUrl();
+
+        // === Post ================================================================
+
+        if ($request->isMethod('post')) {
+            $newFile = $request->get('class');
+            session(['last-class' => $newFile]);
+
+            $path = $project->getPath() . "app/Services/$newFile.php";
+            $pathHuman = str_replace($project->getPath(), "", $path);
+
+            FileHandler::createFile($path)->useTemplate('service', $request);
+
+            flash("Added service $pathHuman", 'success');
+            return redirect()->route('project.show', $project->getName());
+        }
+
+        // =========================================================================
+
+        return view('actions.add-service')->with(compact('project'));
     }
 
     public function addController(Request $request)

@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Helpers\StringHelper;
 use Illuminate\Http\Request;
 use App\Classes\FileHandler;
 
@@ -60,7 +61,15 @@ trait AddsRoutes
             $routeName = $classNameLowercase . "." . $functionNameKebabCase;
         }
 
-        $routeFunction = $this->getClassHumanName($className) . "@" . $functionName;
+        $controllerPrefix = '';
+        if (str_contains($className, 'app/Modules')) {
+            $controllerPrefix = '\App\\' . StringHelper::str_remove_left_from('/app/', $className);
+            $controllerPrefix = StringHelper::str_remove_right_from('Controllers/', $controllerPrefix)
+                . 'Controllers/';
+            $controllerPrefix = str_replace('/', '\\', $controllerPrefix);
+        }
+
+        $routeFunction = $controllerPrefix . $this->getClassHumanName($className) . "@" . $functionName;
         $routeName = ($routeName ?: "$classNameLowercase.$functionNameKebabCase");
 
 //        dump('defineClassNameLowercase = ' . $classNameLowercase);

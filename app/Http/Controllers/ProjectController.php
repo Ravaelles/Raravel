@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Installer;
 use App\Project;
 use App\Traits\AddsClasses;
