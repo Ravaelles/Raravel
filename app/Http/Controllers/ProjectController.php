@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Installer;
-use App\Project;
+use App\Models\Installer;
+use App\Models\Project;
 use App\Traits\AddsClasses;
 use App\Traits\AddsComplex;
 use App\Traits\AddsFunctions;

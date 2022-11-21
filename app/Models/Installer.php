@@ -1,8 +1,6 @@
 <?php
 
-namespace App;
-
-use App\Helpers\RegexHelper;
+namespace App\Models;
 
 class Installer
 {

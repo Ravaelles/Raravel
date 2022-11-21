@@ -1,15 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Carbon\Carbon;
-use Jenssegers\Mongodb\Eloquent\Model as Moloquent; // Jenssegers MongoDB v. 3+
-
-//use Jenssegers\Mongodb\Model as Moloquent; // Jenssegers MongoDB v. < 3.0
+use Jenssegers\Mongodb\Eloquent\Model as Moloquent;
 
 class Eloquent extends Moloquent
 {
-
     /**
      * Auxiliary constant that allows to static access.
      */
@@ -34,7 +30,7 @@ class Eloquent extends Moloquent
 
     /**
      * Returns name of the primary key.
-     * @return string 
+     * @return string
      */
     public static function primaryKey()
     {
@@ -75,7 +71,7 @@ class Eloquent extends Moloquent
     // === Non-static ===========================================================
 
     /**
-     * Returns ID value. 
+     * Returns ID value.
      */
     public function getId()
     {

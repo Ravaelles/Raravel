@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-use App\Project;
+use App\Models\Project;
 
 class ConsoleHelper
 {
