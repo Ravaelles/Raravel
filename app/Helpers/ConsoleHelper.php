@@ -2,7 +2,8 @@
 
 namespace App\Helpers;
 
-use App\Project;
+use App\Models\Project;
+use Illuminate\Support\Str;
 
 class ConsoleHelper
 {
@@ -36,7 +37,7 @@ class ConsoleHelper
 
             if (str_contains($line, "failure:")) {
                 $lines[$i] = "<span style='color:#C22;font-weight:bold;font-size:120%'>$line</span>";
-            } else if ($i == $lastIndex && starts_with($line, "OK (")) {
+            } else if ($i == $lastIndex && Str::startsWith($line, "OK (")) {
                 $lines[$i] = "<span style='color:#292;font-weight:bold;font-size:120%'>$line</span>";
             }
         }

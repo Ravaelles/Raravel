@@ -2,13 +2,12 @@
 
 namespace App\Traits;
 
-use Illuminate\Http\Request;
-use App\Installer;
-use App\Project;
-use App\Helpers\ConsoleHelper;
 use App\Helpers\ConfigAppHelper;
+use App\Helpers\ConsoleHelper;
 use App\Helpers\DebugHelper;
 use App\Helpers\RouteHelper;
+use App\Models\Installer;
+use App\Models\Project;
 
 trait InstallsPackages
 {

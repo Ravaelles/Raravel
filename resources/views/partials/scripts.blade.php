@@ -1,5 +1,6 @@
 <script src="/js/vendor.min.js"></script>
-<script src="/js/app.min.js"></script>
+<script src="/js/app.js"></script>
+{{--<script src="/js/app.min.js"></script>--}}
 
 <!-- jQuery -->
 <!--<script src="/js/jquery.js"></script>-->

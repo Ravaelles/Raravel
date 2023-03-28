@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Helpers\ClassHelper;
+use Illuminate\Support\Str;
 
 class MongoController extends Controller
 {
@@ -48,7 +49,7 @@ class MongoController extends Controller
     public function edit(Request $request, $class, $id = null)
     {
         $className = "\\App\\$class";
-        $isEditMode = $id != null || ends_with($request->path(), "/edit");
+        $isEditMode = $id != null || Str::endsWith($request->path(), "/edit");
 
         // =========================================================================
         // EDIT MODE

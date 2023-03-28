@@ -2,7 +2,8 @@
 
 namespace App\Helpers;
 
-use App\Project;
+use App\Models\Project;
+use Illuminate\Support\Str;
 
 class ConfigAppHelper
 {
@@ -24,10 +25,10 @@ class ConfigAppHelper
     private static function formatString($string)
     {
         $string = "     $string";
-        if (ends_with($string, ",")) {
+        if (Str::endsWith($string, ",")) {
             $string = substr($string, 0, strlen($string) - 1);
         }
-        if (!ends_with($string, "::class")) {
+        if (!Str::endsWith($string, "::class")) {
             $string .= "::class";
         }
         $string .= ",";

@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Http\Request;
 use App\Classes\FileHandler;
+use Illuminate\Support\Str;
 
 trait AddsClasses
 {
@@ -190,12 +191,12 @@ trait AddsClasses
 
     public function defineClassNameKebabCase($className)
     {
-        return kebab_case(str_ireplace("controller", "", $className));
+        return Str::kebab(str_ireplace("controller", "", $className));
     }
 
     public function defineFunctionNameKebabCase($functionName)
     {
-        return kebab_case($functionName);
+        return Str::kebab($functionName);
     }
 
 }
