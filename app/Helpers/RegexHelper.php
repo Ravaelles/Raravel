@@ -2,12 +2,14 @@
 
 namespace App\Helpers;
 
+use Illuminate\Support\Str;
+
 class RegexHelper
 {
 
     public static function replace($regex, $replacement, $string)
     {
-        if (!starts_with($regex, "/")) {
+        if (!Str::startsWith($regex, "/")) {
             $pattern = '/' . $regex . '/i';
         } else {
             $pattern = $regex;

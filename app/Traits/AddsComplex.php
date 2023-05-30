@@ -30,7 +30,7 @@ trait AddsComplex
 //            dump($viewName);
 //            die;
 
-            $functionContent = "return view('$viewParent." . str_replace(".blade.php", "", $viewName) . "');";
+            $functionContent = "return view('$viewParent." . str_replace(".blade.php", "", $viewName) . "')->with(compact());";
 
             $this->insertView($viewParent, $viewName);
             $this->insertRoute($class, $functionName, $viewName);

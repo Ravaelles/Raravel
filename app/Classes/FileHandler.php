@@ -4,6 +4,7 @@ namespace App\Classes;
 
 use Illuminate\Http\Request;
 use \App\Helpers\StringHelper;
+use Illuminate\Support\Str;
 
 class FileHandler
 {
@@ -29,8 +30,8 @@ class FileHandler
     public static function appendToFile($file, $content)
     {
         $fileContent = file_get_contents($file);
-        $hasDoubleNewLine = ends_with($fileContent, "\n\n");
-        $hasSingleNewLine = ends_with($fileContent, "\n");
+        $hasDoubleNewLine = Str::endsWith($fileContent, "\n\n");
+        $hasSingleNewLine = Str::endsWith($fileContent, "\n");
         if (!$hasDoubleNewLine) {
             $fileContent .= "\n";
         }

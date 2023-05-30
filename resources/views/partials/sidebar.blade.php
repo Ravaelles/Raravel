@@ -1,10 +1,10 @@
 <?php
-$hasProjectSelected = $currentProject != null;
+$hasProjectSelected = ($currentProject ?? null) != null;
 ?>
 
 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav side-nav sidebar">
+    <ul class="nav navbar-nav side-nav sidebar" style="left: 0;">
 
         <li {!! !$hasProjectSelected ? 'class="active"' : '' !!}>
             <a href="/"><i class="fa fa-lg fa-fw fa-dashboard"></i> All Projects</a>
@@ -13,7 +13,7 @@ $hasProjectSelected = $currentProject != null;
         @if ($hasProjectSelected)
         <li {!! $hasProjectSelected ? 'class="active"' : '' !!}>
             <a href="{!! route('project.show', $currentProject->getName()) !!}">
-                <!--<i class="fa fa-lg fa-fw fa-sitemap"></i>--> 
+                <!--<i class="fa fa-lg fa-fw fa-sitemap"></i>-->
                 <img class="sidebar-favicon" src="{!! $project->getFavicon() !!}" />
                 {!! $currentProject->getName() !!}
             </a>

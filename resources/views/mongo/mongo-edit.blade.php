@@ -28,7 +28,7 @@ Collection list
     }
 
     .table-edit-object .field-row td:nth-child(1) {
-        width: auto; 
+        width: auto;
         padding-right: 15px;
         font-weight: bold;
     }
@@ -46,7 +46,7 @@ Collection list
     }
 
     .table-edit-object textarea {
-        width: 100%; 
+        width: 100%;
         height: 1.85em;
         margin-right: 5px;
         padding-left: 5px;
@@ -102,7 +102,7 @@ if ($isEditMode) {
                         @foreach ($object->getAttributes() as $field => $value)
 
                         <?php
-                        if (ends_with($field, "_at") || $value instanceof MongoDB\BSON\UTCDateTime) {
+                        if (Illuminate\Support\Str::endsWith($field, "_at") || $value instanceof MongoDB\BSON\UTCDateTime) {
                             continue;
                         }
 
@@ -130,10 +130,10 @@ if ($isEditMode) {
                             </td>
                             <td>
                                 @if ($field !== "_id")
-                                <a href="#" class="btn btn-danger btn-app-red btn-remove-field" 
+                                <a href="#" class="btn btn-danger btn-app-red btn-remove-field"
                                    id="btn-remove-field" data-name="{!! $field !!}"
                                    style="min-width:auto">
-                                    <i class="fa fa-trash-o" style="margin-right:0"></i> 
+                                    <i class="fa fa-trash-o" style="margin-right:0"></i>
                                 </a>
                                 @endif
                             </td>
@@ -179,7 +179,7 @@ if ($isEditMode) {
 
             // Handle non-exception-throwing cases:
             // Neither JSON.parse(false) or JSON.parse(1234) throw errors, hence the type-checking,
-            // but... JSON.parse(null) returns null, and typeof null === "object", 
+            // but... JSON.parse(null) returns null, and typeof null === "object",
             // so we must check for that, too. Thankfully, null is falsey, so this suffices:
             if (o && typeof o === "object") {
                 return true;
@@ -194,7 +194,7 @@ if ($isEditMode) {
     // =========================================================================
 
     $(document).ready(function () {
-        
+
         $("textarea").focus();
 
         // === On FORM SUBMIT ================================================
@@ -207,13 +207,13 @@ if ($isEditMode) {
                 if (text.length < 1) {
                     return;
                 }
-                
+
 //                if (text.indexOf(' ') > -1 && text[0] != '"') {
                 if (text[0] != '"') {
                     text = '"' + text + '"';
                     $(this).val(text);
                 }
-                
+
                 if (!isValidJson('{"fakefield": ' + text + '}')) {
                     isEveryFieldValid = false;
 
@@ -259,7 +259,7 @@ if ($isEditMode) {
                 updateFieldHeight(this);
             });
         }
-        
+
         listenToFieldHeights();
 
         // === Remove FIELD ==================================================
@@ -272,8 +272,8 @@ if ($isEditMode) {
 ////                    .css('opacity', '0.2')
 ////                    .val('------- TO REMOVE --------')
 //                    .remove();
-            
-            $("#form-db-edit").append('<input type="hidden" name="_remove-fields[]" value="' 
+
+            $("#form-db-edit").append('<input type="hidden" name="_remove-fields[]" value="'
                     + name + '" />');
 //            $(this).closest('textarea').remove();
         });

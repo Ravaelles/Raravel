@@ -31,7 +31,7 @@ trait AddsTraits
 
         // =========================================================================
 
-        return view('actions.add-trait')->with(compact('project', 'classes'));
+        return view('actions.add-trait')->with(compact('project'));
     }
 
 }

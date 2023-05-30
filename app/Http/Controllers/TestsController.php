@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class TestsController extends Controller
 {
@@ -54,7 +55,7 @@ class TestsController extends Controller
 
             if (str_contains($line, "failure:")) {
                 $lines[$i] = "<span style='color:#C22;font-weight:bold;font-size:120%'>$line</span>";
-            } else if ($i == $lastIndex && starts_with($line, "OK (")) {
+            } else if ($i == $lastIndex && Str::startsWith($line, "OK (")) {
                 $lines[$i] = "<span style='color:#292;font-weight:bold;font-size:120%'>$line</span>";
             }
         }

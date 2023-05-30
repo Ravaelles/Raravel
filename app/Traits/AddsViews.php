@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Http\Request;
 use App\Classes\FileHandler;
+use Illuminate\Support\Str;
 
 trait AddsViews
 {
@@ -12,11 +13,11 @@ trait AddsViews
     {
         $project = $this->getProjectFromUrl();
 
-        if (!ends_with($viewName, ".blade.php")) {
+        if (!Str::endsWith($viewName, ".blade.php")) {
             $viewName .= ".blade.php";
         }
 
-        $parentName = kebab_case($parentName);
+        $parentName = Str::kebab($parentName);
 
         $path = $project->getPath() . "resources/views/$parentName/$viewName";
 //        $path = "$viewName.php";
@@ -54,11 +55,11 @@ trait AddsViews
     {
         $project = $this->getProjectFromUrl();
 
-        if (!ends_with($viewName, ".blade.php")) {
+        if (!Str::endsWith($viewName, ".blade.php")) {
             $viewName .= ".blade.php";
         }
 
-        $parentName = kebab_case($parentName);
+        $parentName = Str::kebab($parentName);
 
         $path = $project->getPath() . "resources/views/$parentName/$viewName";
 //        $path = "$viewName.php";
