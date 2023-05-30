@@ -17,3 +17,5 @@ tests/_output/*
 resources/views/main/test.blade.php
 *.lnk
 .idea/
+.idea/php.xml
+.idea/workspace.xml
