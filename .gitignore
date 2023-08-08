@@ -7,6 +7,9 @@ Homestead.json
 .env
 nbproject/
 /.idea
+.idea
+.idea/php.xml
+.idea/workspace.xml
 *.bat
 UPLOADER/
 bower_components/
