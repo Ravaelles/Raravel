@@ -11,10 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
+// mix.js('resources/js/app.js', 'public/js')
+//   .postCss('resources/css/app.css', 'public/css', [
+//     //
+//   ]);
+
 mix.js('resources/assets/js/app/app.js', 'public/js')
-    .sass('resources/assets/sass/app/layout.scss', 'public/css/app.min.css');
-    // .postCss('resources/assets/css/app.css', 'public/css/app.min.css', [
-    // ]);
+  .sass('resources/assets/sass/app/layout.scss', 'public/css/app.min.css');
+// .postCss('resources/assets/css/app.css', 'public/css/app.min.css', [
+// ]);
 
 mix.js('resources/assets/js/vendor/bootstrap.js', 'public/js/vendor.min.js');
 mix.js('resources/assets/js/vendor/jquery.js', 'public/js/vendor.min.js');
