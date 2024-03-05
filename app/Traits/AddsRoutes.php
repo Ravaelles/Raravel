@@ -76,7 +76,7 @@ trait AddsRoutes
 //        dump('$functionNameKebabCase = ' . $functionNameKebabCase);
 //        dump('$routeName = ' . $routeName);
 
-        $routeString = "Route::$method($classNameLowercase::class . '@$functionNameKebabCase', '$routeFunction')"
+        $routeString = "Route::$method('$routeFunction', $classNameLowercase::class . '@$functionNameKebabCase')"
             . "->name('$routeName');";
 
 //        $routeString = "Route::$method('$classNameLowercase/$functionNameKebabCase', '$routeFunction')"
