@@ -8,6 +8,7 @@ Homestead.json
 nbproject/
 /.idea
 .idea
+.idea/
 .idea/php.xml
 .idea/workspace.xml
 *.bat

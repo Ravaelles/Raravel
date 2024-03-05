@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ff2ad52-1011-4095-8196-707afa0cbf83" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/AddsRoutes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/AddsRoutes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +19,31 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="develop" />
+                    <option name="lastUsedInstant" value="1691495177" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1691495013" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -166,6 +189,10 @@
       <path value="$PROJECT_DIR$/vendor/league/flysystem-local" />
     </include_path>
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="1TFYtiYQ8bE1njdCgLpINwlMJE3" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -234,6 +261,7 @@
       <workItem from="1680010184654" duration="70000" />
       <workItem from="1691494364179" duration="170000" />
       <workItem from="1691494577713" duration="228000" />
+      <workItem from="1697478207774" duration="41000" />
     </task>
     <servers />
   </component>
@@ -250,5 +278,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Merge branch 'develop' of github.com:Ravaelles/raravel into develop&#10;&#10;# Conflicts:&#10;#&#9;.env.example&#10;#&#9;app/Helpers/ConfigAppHelper.php&#10;#&#9;app/Helpers/ConsoleHelper.php&#10;#&#9;composer.lock&#10;#&#9;package-lock.json&#10;#&#9;package.json&#10;#&#9;webpack.mix.js&#10;" />
+    <MESSAGE value="Merge branch 'develop' of github.com:Ravaelles/raravel into develop&#10;&#10;# Conflicts:&#10;#&#9;.env.example&#10;#&#9;app/Helpers/ConfigAppHelper.php&#10;#&#9;app/Helpers/ConsoleHelper.php&#10;#&#9;composer.lock&#10;#&#9;package-lock.json&#10;#&#9;package.json&#10;#&#9;webpack.mix.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'develop' of github.com:Ravaelles/raravel into develop&#10;&#10;# Conflicts:&#10;#&#9;.env.example&#10;#&#9;app/Helpers/ConfigAppHelper.php&#10;#&#9;app/Helpers/ConsoleHelper.php&#10;#&#9;composer.lock&#10;#&#9;package-lock.json&#10;#&#9;package.json&#10;#&#9;webpack.mix.js" />
   </component>
 </project>
